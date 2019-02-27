@@ -2,8 +2,8 @@ module SixSaferpay
   class Terminal
     attr_accessor :terminal_id
 
-    def initialize
-      @terminal_id = SixSaferpay.config.terminal_id
+    def initialize(terminal_id = nil)
+      @terminal_id = terminal_id || SixSaferpay.config.terminal_id
     end
 
     def to_hash

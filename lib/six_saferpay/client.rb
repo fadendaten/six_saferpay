@@ -1,6 +1,6 @@
 module SixSaferpay
   class Client
-    attr_accessor :object
+    attr_accessor :object, :request, :response
 
     def initialize(object)
       @object = object
@@ -13,8 +13,8 @@ module SixSaferpay
     def post
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
-      response = https.request(request)
-      response
+      @response = https.request(request)
+      @object.response_class.new(JSON.parse(@response.body, symbolize_names: true))
     end
 
     private
@@ -23,7 +23,7 @@ module SixSaferpay
       request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
       request.body = @object.to_h.to_json
       request.basic_auth(username, password)
-      request
+      @request = request
     end
 
     def uri

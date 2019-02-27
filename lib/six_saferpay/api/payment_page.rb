@@ -1,5 +1,6 @@
-require 'six_saferpay/api/payment_page/assert'
-require 'six_saferpay/api/payment_page/initialize'
+require 'six_saferpay/api/payment_page/requests/assert'
+require 'six_saferpay/api/payment_page/requests/initialize'
+require 'six_saferpay/api/payment_page/responses/initalize_response'
 
 module SixSaferpay
   module PaymentPage

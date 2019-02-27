@@ -6,11 +6,11 @@ module SixSaferpay
       :request_id,
       :retry_indicator
 
-    def initialize
-      @spec_version = SixSaferpay::API::VERSION
-      @customer_id = SixSaferpay.config.customer_id
-      @request_id = SecureRandom.uuid
-      @retry_indicator = 0
+    def initialize(hash)
+      @spec_version = hash[:SpecVersion] || SixSaferpay::API::VERSION
+      @customer_id = hash[:CustomerId] || SixSaferpay.config.customer_id
+      @request_id = hash[:RequestHeader] || SecureRandom.uuid
+      @retry_indicator = hash[:RetryIndicator] || 0
     end
 
     def to_hash
