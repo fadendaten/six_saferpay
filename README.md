@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/fadendaten/six_saferpay.svg?branch=master)](https://travis-ci.org/fadendaten/six_saferpay)
+[![Maintainability](https://api.codeclimate.com/v1/badges/76c9d1d0f261c276de96/maintainability)](https://codeclimate.com/github/fadendaten/six_saferpay/maintainability)
 
 # SixSaferpay
 
