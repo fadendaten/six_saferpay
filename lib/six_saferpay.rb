@@ -12,6 +12,7 @@ require 'six_saferpay/models/token'
 require 'six_saferpay/models/transaction_reference'
 require 'six_saferpay/models/verification_code'
 
+require 'securerandom'
 require 'json'
 require 'net/http'
 

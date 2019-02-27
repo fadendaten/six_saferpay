@@ -1,5 +1,3 @@
-require 'SecureRandom'
-
 module SixSaferpay
   class RequestHeader
 
