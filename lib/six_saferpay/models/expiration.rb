@@ -3,13 +3,13 @@ module SixSaferpay
 
     attr_accessor :expiration
 
-    def initialize(expiration)
+    def initialize(expiration: expiration)
       @expiration = expiration
     end
 
     def to_hash
       {
-        'Expiration': @expiration
+        Expiration: @expiration
       }
     end
     alias_method :to_h, :to_hash

@@ -7,11 +7,12 @@ module SixSaferpay
 
     def to_hash
       {
-        'Styling': {
-          'CssUrl': @css_url
+        Styling: {
+          CssUrl: @css_url
         }
       }
     end
     alias_method :to_h, :to_hash
+
   end
 end

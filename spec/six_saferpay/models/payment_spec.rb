@@ -2,24 +2,29 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Payment do
 
-  let(:order_id) { 'R123456789' }
   let(:value) { '100' }
   let(:currency) { 'CHF' }
+  let(:order_id) { 'R123456789' }
   let(:description) { "Order #{order_id}" }
-
-  subject { described_class.new(value, currency, order_id, description) }
 
   let(:hash) {
     {
-      'Payment': {
-        'Amount': {
-          'Value': value,
-          'CurrencyCode': currency
+      Payment: {
+        Amount: {
+          Value: value,
+          CurrencyCode: currency
         },
-        'OrderId': order_id,
-        'Description': description
+        OrderId: order_id,
+        Description: description
       }
     }
+  }
+
+  subject {
+    described_class.new(value: value,
+                        currency: currency,
+                        order_id: order_id,
+                        description: description)
   }
 
   describe 'to_hash' do

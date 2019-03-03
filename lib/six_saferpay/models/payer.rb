@@ -1,14 +1,14 @@
 module SixSaferpay
   class Payer
 
-    def initialize(language)
+    def initialize(language: language)
       @language = language
     end
 
     def to_hash
       {
-        'Payer': {
-          'LanguageCode': @language
+        Payer: {
+          LanguageCode: @language
         }
       }
     end

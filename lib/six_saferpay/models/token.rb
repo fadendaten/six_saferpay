@@ -3,13 +3,13 @@ module SixSaferpay
 
     attr_accessor :token
 
-    def initialize(token)
+    def initialize(token: token)
       @token = token
     end
 
     def to_hash
       {
-        'Token': @token
+        Token: @token
       }
     end
     alias_method :to_h, :to_hash

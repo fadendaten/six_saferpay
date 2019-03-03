@@ -4,11 +4,17 @@ module SixSaferpay
 
       attr_accessor :request_header, :terminal_id, :payment, :return_urls
 
-      def initialize(value, currency, order_id, description)
-        @request_header = SixSaferpay::RequestHeader.new({})
+      def initialize(value: value,
+                     currency: currency,
+                     order_id: order_id,
+                     description: description)
+        @request_header = SixSaferpay::RequestHeader.new()
         @terminal_id = SixSaferpay::Terminal.new()
-        @payment = SixSaferpay::Payment
-          .new(value, currency, order_id, description)
+        @payment = SixSaferpay::Payment.new(value: value,
+                                            currency: currency,
+                                            order_id: order_id,
+                                            description: description
+                                           )
         @return_urls = SixSaferpay::ReturnUrls.new
       end
 

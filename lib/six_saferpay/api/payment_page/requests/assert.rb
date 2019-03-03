@@ -4,9 +4,9 @@ module SixSaferpay
 
       attr_accessor :request_header, :token
 
-      def initialize(token)
-        @request_header = SixSaferpay::RequestHeader.new
-        @token = SixSaferpay::Token.new(token)
+      def initialize(token: token)
+        @request_header = SixSaferpay::RequestHeader.new()
+        @token = SixSaferpay::Token.new(token: token)
       end
 
       def to_hash
@@ -23,6 +23,10 @@ module SixSaferpay
 
       def url
         '/Payment/v1/PaymentPage/Assert'
+      end
+
+      def response_class
+        SixSaferpay::PaymentPage::AssertResponse
       end
 
     end

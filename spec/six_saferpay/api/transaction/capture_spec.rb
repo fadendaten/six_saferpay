@@ -9,7 +9,7 @@ RSpec.describe SixSaferpay::Transaction::Capture do
 
   let(:url) { '/Payment/v1/Transaction/Capture' }
 
-  subject { described_class.new(transaction_id) }
+  subject { described_class.new(transaction_id: transaction_id) }
 
   before do
     subject.request_header.request_id = request_id
@@ -17,14 +17,14 @@ RSpec.describe SixSaferpay::Transaction::Capture do
 
   let(:hash) {
     {
-      'RequestHeader': {
-        'SpecVersion': SixSaferpay::API::VERSION,
-        'CustomerId': customer_id,
-        'RequestId': request_id,
-        'RetryIndicator': retry_indicator
+      RequestHeader: {
+        SpecVersion: SixSaferpay::API::VERSION,
+        CustomerId: customer_id,
+        RequestId: request_id,
+        RetryIndicator: retry_indicator
       },
-      'TransactionReference': {
-        'TransactionId': transaction_id
+      TransactionReference: {
+        TransactionId: transaction_id
       }
     }
   }

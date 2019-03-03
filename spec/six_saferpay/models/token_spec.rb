@@ -4,11 +4,11 @@ RSpec.describe SixSaferpay::Token do
 
   let(:token) { '234uhfh78234hlasdfh8234e' }
 
-  subject { described_class.new(token) }
+  subject { described_class.new(token: token) }
 
   let(:hash) {
       {
-        'Token': token
+        Token: token
       }
   }
 

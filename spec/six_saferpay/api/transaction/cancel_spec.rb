@@ -9,7 +9,7 @@ RSpec.describe SixSaferpay::Transaction::Cancel do
 
   let(:url) { '/Payment/v1/Transaction/Cancel' }
 
-  subject { described_class.new(transaction_id) }
+  subject { described_class.new(transaction_id: transaction_id) }
 
   before do
     subject.request_header.request_id = request_id
@@ -17,18 +17,17 @@ RSpec.describe SixSaferpay::Transaction::Cancel do
 
   let(:hash) {
     {
-      'RequestHeader': {
-        'SpecVersion': SixSaferpay::API::VERSION,
-        'CustomerId': customer_id,
-        'RequestId': request_id,
-        'RetryIndicator': retry_indicator
+      RequestHeader: {
+        SpecVersion: SixSaferpay::API::VERSION,
+        CustomerId: customer_id,
+        RequestId: request_id,
+        RetryIndicator: retry_indicator
       },
-      'TransactionReference': {
-        'TransactionId': transaction_id
+      TransactionReference: {
+        TransactionId: transaction_id
       }
     }
   }
-
 
   describe 'to_hash' do
     it 'returns the hash representation of the payment page assert' do

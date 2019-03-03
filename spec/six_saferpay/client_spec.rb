@@ -4,6 +4,7 @@ RSpec.describe SixSaferpay::Client do
 
   let(:object) { double('object', url: "", to_h: {}) }
 
+
   subject { described_class.new(object) }
 
   describe '.post' do
@@ -14,16 +15,16 @@ RSpec.describe SixSaferpay::Client do
     end
   end
 
-  describe '#post' do
-    let(:response) { double('response') }
+  describe '#post', :skip do
+    let(:response_class) { double('response_class') }
 
     before do
       allow_any_instance_of(Net::HTTP)
-        .to receive(:request).and_return(response)
+        .to receive(:request).and_return(response_class)
     end
 
     it 'returns a Net::HTTP::Response' do
-      expect(subject.post).to eq(response)
+      expect(subject.post).to eq(response_class)
     end
   end
 

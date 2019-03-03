@@ -4,6 +4,7 @@ Dotenv.load('.test.env')
 require "bundler/setup"
 require "six_saferpay"
 require 'pry'
+require 'vcr'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -15,6 +16,16 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassetts"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+  config.allow_http_connections_when_no_cassette = true
+  config.default_cassette_options = {
+    match_requests_on: [:method, :path]
+  }
 end
 
 SixSaferpay.configure do |config|

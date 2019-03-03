@@ -9,7 +9,7 @@ RSpec.describe SixSaferpay::PaymentPage::Assert do
 
   let(:url) { '/Payment/v1/PaymentPage/Assert' }
 
-  subject { described_class.new(token) }
+  subject { described_class.new(token: token) }
 
   before do
     subject.request_header.request_id = request_id
@@ -17,13 +17,13 @@ RSpec.describe SixSaferpay::PaymentPage::Assert do
 
   let(:hash) {
     {
-      'RequestHeader': {
-        'SpecVersion': SixSaferpay::API::VERSION,
-        'CustomerId': customer_id,
-        'RequestId': request_id,
-        'RetryIndicator': retry_indicator
+      RequestHeader: {
+        SpecVersion: SixSaferpay::API::VERSION,
+        CustomerId: customer_id,
+        RequestId: request_id,
+        RetryIndicator: retry_indicator
       },
-      'Token': token
+      Token: token
     }
   }
 

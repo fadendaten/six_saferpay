@@ -10,9 +10,9 @@ module SixSaferpay
 
     def to_hash
       {
-        'ResponseHeader': {
-          'SpecVersion': @spec_version,
-          'RequestId': @request_id
+        ResponseHeader: {
+          SpecVersion: @spec_version,
+          RequestId: @request_id
         }
       }
     end

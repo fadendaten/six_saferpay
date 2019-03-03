@@ -9,9 +9,9 @@ module SixSaferpay
 
     def to_hash
       {
-        'ReturnUrls': {
-          'Success': @success_url,
-          'Fail': @fail_url
+        ReturnUrls: {
+          Success: @success_url,
+          Fail: @fail_url
         }
       }
     end

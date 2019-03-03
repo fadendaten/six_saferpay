@@ -15,34 +15,52 @@ RSpec.describe SixSaferpay::PaymentPage::Initialize do
 
   let(:url) { '/Payment/v1/PaymentPage/Initialize' }
 
-  subject { described_class.new(value, currency, order_id, description) }
-
   before do
     subject.request_header.request_id = request_id
   end
 
   let(:hash) {
     {
-      'RequestHeader': {
-        'SpecVersion': SixSaferpay::API::VERSION,
-        'CustomerId': customer_id,
-        'RequestId': request_id,
-        'RetryIndicator': retry_indicator
+      RequestHeader: {
+        SpecVersion: SixSaferpay::API::VERSION,
+        CustomerId: customer_id,
+        RequestId: request_id,
+        RetryIndicator: retry_indicator
       },
-      'TerminalId': terminal_id,
-      'Payment': {
-        'Amount': {
-          'Value': value,
-          'CurrencyCode': currency
+      TerminalId: terminal_id,
+      Payment: {
+        Amount: {
+          Value: value,
+          CurrencyCode: currency
         },
-        'OrderId': order_id,
-        'Description': description
+        OrderId: order_id,
+        Description: description
       },
-      'ReturnUrls': {
-        'Success': success_url,
-        'Fail': fail_url
+      ReturnUrls: {
+        Success: success_url,
+        Fail: fail_url
       }
     }
+  }
+
+  let(:init_hash) {
+    {
+      Payment: {
+        Amount: {
+          Value: value,
+          CurrencyCode: currency
+        }
+      },
+      OrderId: order_id,
+      Description: description
+    }
+  }
+
+  subject {
+    described_class.new(value: value,
+                               currency: currency,
+                               order_id: order_id,
+                               description: description)
   }
 
   describe 'to_hash' do

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::RequestHeader do
 
-  subject { described_class.new }
+  subject { described_class.new() }
 
   let(:customer_id) { '245294' }
   let(:request_id) { SecureRandom.uuid }
@@ -14,11 +14,11 @@ RSpec.describe SixSaferpay::RequestHeader do
 
   let(:hash) {
     {
-      'RequestHeader': {
-        'SpecVersion': SixSaferpay::API::VERSION,
-        'CustomerId': customer_id,
-        'RequestId': request_id,
-        'RetryIndicator': retry_indicator
+      RequestHeader: {
+        SpecVersion: SixSaferpay::API::VERSION,
+        CustomerId: customer_id,
+        RequestId: request_id,
+        RetryIndicator: retry_indicator
       }
     }
   }

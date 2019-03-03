@@ -4,12 +4,12 @@ RSpec.describe SixSaferpay::TransactionReference do
 
   let(:transaction_id) { '723n4MAjMdhjSAhAKEUdA8jtl9jb' }
 
-  subject { described_class.new(transaction_id) }
+  subject { described_class.new(transaction_id: transaction_id) }
 
   let(:hash) {
     {
-      'TransactionReference': {
-        'TransactionId': transaction_id
+      TransactionReference: {
+        TransactionId: transaction_id
       }
     }
   }
