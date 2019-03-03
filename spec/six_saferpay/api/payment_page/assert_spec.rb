@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe SixSaferpay::PaymentPage::Assert do
+RSpec.describe SixSaferpay::API::PaymentPage::Assert do
 
   let(:customer_id) { '245294' }
   let(:request_id) { SecureRandom.uuid }

@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'dotenv'
 Dotenv.load('.test.env')
 
@@ -5,9 +8,6 @@ require "bundler/setup"
 require "six_saferpay"
 require 'pry'
 require 'vcr'
-require 'simplecov'
-
-SimpleCov.start
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

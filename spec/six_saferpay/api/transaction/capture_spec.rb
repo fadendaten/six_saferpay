@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe SixSaferpay::Transaction::Capture do
+RSpec.describe SixSaferpay::API::Transaction::Capture do
 
   let(:customer_id) { '245294' }
   let(:request_id) { SecureRandom.uuid }

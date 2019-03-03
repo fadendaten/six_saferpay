@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe SixSaferpay::Transaction::Cancel do
+RSpec.describe SixSaferpay::API::Transaction::Cancel do
 
   let(:customer_id) { '245294' }
   let(:request_id) { SecureRandom.uuid }
