@@ -32,5 +32,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'dotenv', '~> 2.7.0'
   spec.add_development_dependency 'pry', '~> 0.12.0'
   spec.add_development_dependency 'tty-prompt', '~> 0.18'
+  spec.add_development_dependency 'simplecov', '~> 0.16'
 
 end
