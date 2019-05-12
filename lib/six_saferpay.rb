@@ -1,8 +1,12 @@
 require 'six_saferpay/api'
 require 'six_saferpay/client'
+require 'six_saferpay/error'
+require 'six_saferpay/model'
 require 'six_saferpay/version'
 
 require 'six_saferpay/models/amount'
+require 'six_saferpay/models/client_info'
+require 'six_saferpay/models/config_set'
 require 'six_saferpay/models/expiration'
 require 'six_saferpay/models/payer'
 require 'six_saferpay/models/payment'
@@ -22,7 +26,6 @@ require 'json'
 require 'net/http'
 
 module SixSaferpay
-  class Error < StandardError; end
 
   class Config
     attr_accessor :customer_id,        # ID of the Customer by SIX Saferpay

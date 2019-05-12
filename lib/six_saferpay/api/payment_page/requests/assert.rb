@@ -3,17 +3,17 @@ module SixSaferpay
     module PaymentPage
       class Assert
 
-        attr_accessor :request_header, :token
+        attr_accessor(:request_header, :token)
 
-        def initialize(token: token)
-          @request_header = SixSaferpay::RequestHeader.new()
-          @token = SixSaferpay::Token.new(token: token)
+        def initialize(request_header: nil, token:)
+          @request_header = request_header || SixSaferpay::RequestHeader.new()
+          @token = token
         end
 
         def to_hash
           hash = Hash.new
           hash.merge!(@request_header.to_h)
-          hash.merge!(@token.to_h)
+          hash.merge!(Token: @token)
           hash
         end
         alias_method :to_h, :to_hash

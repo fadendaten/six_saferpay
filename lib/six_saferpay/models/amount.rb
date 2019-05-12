@@ -1,20 +1,17 @@
 module SixSaferpay
   class Amount
 
-    attr_accessor :value, :currency
+    attr_accessor :value, :currency_code
 
-    def initialize(value: value, currency: currency)
+    def initialize(value:, currency_code:)
       @value = value
-      @currency = currency
+      @currency_code = currency_code
     end
 
     def to_hash
-      {
-        Amount: {
-          Value: @value,
-          CurrencyCode: @currency
-        }
-      }
+      body = Hash.new
+      body.merge!(Value: @value)
+      body.merge!(CurrencyCode: @currency_code)
     end
     alias_method :to_h, :to_hash
 
