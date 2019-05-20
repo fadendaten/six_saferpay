@@ -17,10 +17,10 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Authenticated: @authenticated)
-      body.merge!(LiabilityShift: @liability_shift)
-      body.merge!(Xid: @xid) if @xid
-      body.merge!(VerificationValue: @verification_value) if @verification_value
+      body.merge!(authenticated: @authenticated)
+      body.merge!(liability_shift: @liability_shift)
+      body.merge!(xid: @xid) if @xid
+      body.merge!(verification_value: @verification_value) if @verification_value
     end
     alias_method :to_h, :to_hash
 
