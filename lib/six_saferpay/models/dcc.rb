@@ -9,7 +9,7 @@ module SixSaferpay
 
     def to_hash
       hash = Hash.new
-      hash.merge!(PayerAmount: @payer_amount.to_h) if @payer_amount
+      hash.merge!(payer_amount: @payer_amount.to_h) if @payer_amount
       hash
     end
     alias_method :to_h, :to_hash

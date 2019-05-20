@@ -23,11 +23,11 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(LiabilityShift: @liability_shift)
-      body.merge!(LiableEntry: @liable_entity)
-      body.merge!(ThreeDs: @three_ds) if @three_ds
-      body.merge!(FraudFree: @fraud_free) if @fraud_free
-      body.merge!(Dcc: @dcc) if @dcc
+      body.merge!(liability_shift: @liability_shift)
+      body.merge!(liable_entity: @liable_entity)
+      body.merge!(three_ds: @three_ds) if @three_ds
+      body.merge!(fraud_free: @fraud_free) if @fraud_free
+      body.merge!(dcc: @dcc) if @dcc
       body
     end
     alias_method :to_h, :to_hash

@@ -10,8 +10,8 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(RequestId: @request_id)
-      body.merge!(SpecVersion: @spec_version)
+      body.merge!(request_id: @request_id)
+      body.merge!(spec_version: @spec_version)
       body
     end
     alias_method :to_h, :to_hash

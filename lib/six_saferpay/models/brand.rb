@@ -10,8 +10,8 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(PaymentMethod: @payment_method) if @payment_method
-      body.merge!(Name: @name)
+      body.merge!(payment_method: @payment_method) if @payment_method
+      body.merge!(name: @name)
       body
     end
     alias_method :to_h, :to_hash

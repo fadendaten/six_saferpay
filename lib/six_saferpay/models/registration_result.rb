@@ -18,9 +18,9 @@ module SixSaferpay
 
     def to_hash
       hash = Hash.new
-      hash.merge!(Success: @sucess) if @success
-      hash.merge!(Alias: @alias.to_h) if @alias
-      hash.merge!(Error: @error.to_h) if @error
+      hash.merge!(sucess: @sucess) if @success
+      hash.merge!(alias: @alias.to_h) if @alias
+      hash.merge!(error: @error.to_h) if @error
     end
 
   end

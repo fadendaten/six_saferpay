@@ -30,13 +30,13 @@ module SixSaferpay
 
       def to_hash
         hash = Hash.new
-        hash.merge!(ResponseHeader: @response_header.to_h) if @response_header
-        hash.merge!(Transaction: @transaction.to_h) if @transaction
-        hash.merge!(PaymentMeans: @payment_means.to_h) if @payment_means
-        hash.merge!(Payer: @payer.to_h) if @payer
-        hash.merge!(RegistrationResult: @registration_result.to_h) if @registration_result
-        hash.merge!(Liability: @liability.to_h) if @liability
-        hash.merge!(Dcc: @dcc.to_h) if @dcc
+        hash.merge!(response_header: @response_header.to_h) if @response_header
+        hash.merge!(transaction: @transaction.to_h) if @transaction
+        hash.merge!(payment_means: @payment_means.to_h) if @payment_means
+        hash.merge!(payer: @payer.to_h) if @payer
+        hash.merge!(registration_result: @registration_result.to_h) if @registration_result
+        hash.merge!(liability: @liability.to_h) if @liability
+        hash.merge!(dcc: @dcc.to_h) if @dcc
         hash
       end
       alias_method :to_h, :to_hash

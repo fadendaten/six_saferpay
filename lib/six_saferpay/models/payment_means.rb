@@ -26,12 +26,12 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Brand: @brand.to_h)
-      body.merge!(DisplayText: @display_text)
-      body.merge!(Wallet: @wallet) if @wallet
-      body.merge!(Card: @card.to_h) if @card
-      body.merge!(BankAccount: @bank_account) if @bank_account
-      body.merge!(Twint: @twint.to_h) if @twint
+      body.merge!(brand: @brand.to_h)
+      body.merge!(display_text: @display_text)
+      body.merge!(wallet: @wallet) if @wallet
+      body.merge!(card: @card.to_h) if @card
+      body.merge!(bank_account: @bank_account) if @bank_account
+      body.merge!(twint: @twint.to_h) if @twint
       body
     end
     alias_method :to_h, :to_hash
