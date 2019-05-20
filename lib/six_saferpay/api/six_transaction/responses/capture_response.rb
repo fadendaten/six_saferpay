@@ -8,7 +8,11 @@ module SixSaferpay
                     :date,
                     :invoice
                    )
-      def initialize(hash)
+      def initialize(response_header: ,
+                    capture_id: nil,
+                    status: ,
+                    date: ,
+                    invoice: )
         @response_header = SixSaferpay::ResponseHeader.new(response_header) if response_header
         @capture_id = capture_id
         @status = status
