@@ -37,13 +37,15 @@ RSpec.describe 'SixPaymentPage' do
     VCR.use_cassette('payment_page_assert') do
       @assert = SixSaferpay::SixPaymentPage::Assert.new(token: @initialize_response.token)
       @assert_response = SixSaferpay::Client.post(@assert)
+      @transaction = @assert_response.transaction
     end
 
-    # # Capture Request
-    # VCR.use_cassette('transaction_capture') do
-    #   @capture = SixSaferpay::SixTransaction::Capture.new(
-
-    # end
+    # Capture Request
+    VCR.use_cassette('transaction_capture') do
+      @transaction_reference = SixSaferpay::TransactionReference.new(transaction_id: @transaction.id)
+      @capture = SixSaferpay::SixTransaction::Capture.new(transaction_reference: @transaction_reference)
+      @capture_response = SixSaferpay::Client.post(@capture)
+    end
   end
 
   describe 'initialize' do
@@ -69,7 +71,7 @@ RSpec.describe 'SixPaymentPage' do
   end
 
   describe 'assert' do
-    it 'should return a SixSaferPay::SixPaymentPage::AssertResponse' do
+    it 'should return a SixSaferpay::SixPaymentPage::AssertResponse' do
       expect(@assert_response)
         .to be_a(SixSaferpay::SixPaymentPage::AssertResponse)
     end
@@ -97,6 +99,25 @@ RSpec.describe 'SixPaymentPage' do
     it 'should hold a liability' do
       liability = @assert_response.liability
       expect(liability).to be_a(SixSaferpay::Liability)
+    end
+  end
+
+  describe 'capture' do
+    it 'sould return a SixSaferpay::SixTransaction::CaptureResponse' do
+      expect(@capture_response)
+        .to be_a(SixSaferpay::SixTransaction::CaptureResponse)
+    end
+
+    it 'should hold a response header' do
+      require 'pry'; binding.pry
+      response_header = @capture_response.response_header
+      expect(response_header).to be_a(SixSaferpay::ResponseHeader)
+    end
+
+    it 'should hold a capture_id' do
+      capture_id = @capture_response.capture_id
+      expect(capture_id).to be_a(String)
+      expect(capture_id).to be('dd')
     end
   end
 

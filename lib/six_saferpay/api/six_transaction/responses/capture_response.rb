@@ -9,20 +9,20 @@ module SixSaferpay
                     :invoice
                    )
       def initialize(hash)
-        @response_header = SixSaferpay::ResponseHeader.new(response_header)
+        @response_header = SixSaferpay::ResponseHeader.new(response_header) if response_header
         @capture_id = capture_id
         @status = status
         @date = date
-        @invoice = SixSaferpay::Invoice.new(invoice)
+        @invoice = SixSaferpay::Invoice.new(invoice.to_h) if invoice
       end
 
       def to_hash
         hash = Hash.new
-        hash.merge!(ResponseHeader: @response_header.to_h) if @response_header
-        hash.merge!(CaptureId: @capture_id) if @capture_id
-        hash.merge!(Status: @status) if @status
-        hash.merge!(Date: @date) if @date
-        hash.merge!(Invoice: @invoice) if @invoice
+        hash.merge!(response_header: @response_header.to_h) if @response_header
+        hash.merge!(capture_id: @capture_id) if @capture_id
+        hash.merge!(status: @status) if @status
+        hash.merge!(date: @date) if @date
+        hash.merge!(invoice: @invoice.to_h) if @invoice
         hash
       end
       alias_method :to_h, :to_hash

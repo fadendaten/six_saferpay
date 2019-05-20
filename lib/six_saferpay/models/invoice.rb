@@ -11,9 +11,9 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Payee: @payee.to_h)
-      body.merge!(ReasonForTransfer: @reason_for_transfer)
-      body.merge!(DueDate: @due_date)
+      body.merge!(payee: @payee.to_h) if @payee
+      body.merge!(reason_for_transfer: @reason_for_transfer) if @reason_for_transfer
+      body.merge!(due_date: @due_date) if @due_date
       body
     end
     alias_method :to_h, :to_hash
