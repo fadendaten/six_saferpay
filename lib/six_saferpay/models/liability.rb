@@ -22,8 +22,8 @@ module SixSaferpay
       body = Hash.new
       body.merge!(liability_shift: @liability_shift)
       body.merge!(liable_entity: @liable_entity)
-      body.merge!(three_ds: @three_ds) if @three_ds
-      body.merge!(fraud_free: @fraud_free) if @fraud_free
+      body.merge!(three_ds: @three_ds.to_h) if @three_ds
+      body.merge!(fraud_free: @fraud_free.to_h) if @fraud_free
       body
     end
     alias_method :to_h, :to_hash
