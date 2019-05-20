@@ -6,9 +6,7 @@ RSpec.describe SixSaferpay::Styling do
 
   let(:hash) {
     {
-      'Styling': {
-        'CssUrl': 'http://localhost:3004/six_payment.css'
-      }
+      'css_url': 'http://localhost:3004/six_payment.css'
     }
   }
 

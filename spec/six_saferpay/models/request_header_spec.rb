@@ -14,15 +14,12 @@ RSpec.describe SixSaferpay::RequestHeader do
 
   let(:hash) {
     {
-      RequestHeader: {
-        SpecVersion: SixSaferpay::API::VERSION,
-        CustomerId: customer_id,
-        RequestId: request_id,
-        RetryIndicator: retry_indicator
-      }
+      spec_version: SixSaferpay::API::VERSION,
+      customer_id: customer_id,
+      request_id: request_id,
+      retry_indicator: retry_indicator
     }
   }
-
 
   describe 'to_hash' do
     it 'returns the hash representation of the request header' do

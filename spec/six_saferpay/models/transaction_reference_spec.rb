@@ -8,9 +8,7 @@ RSpec.describe SixSaferpay::TransactionReference do
 
   let(:hash) {
     {
-      TransactionReference: {
-        TransactionId: transaction_id
-      }
+      transaction_id: transaction_id
     }
   }
 

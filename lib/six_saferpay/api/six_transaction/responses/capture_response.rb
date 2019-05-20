@@ -12,7 +12,7 @@ module SixSaferpay
                     capture_id: nil,
                     status: ,
                     date: ,
-                    invoice: )
+                    invoice: nil)
         @response_header = SixSaferpay::ResponseHeader.new(response_header) if response_header
         @capture_id = capture_id
         @status = status

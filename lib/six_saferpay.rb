@@ -7,6 +7,7 @@ require 'net/http'
 spec = Gem::Specification.find_by_name("six_saferpay")
 gem_root = spec.gem_dir
 
+
 Dir[File.join(gem_root, "lib", "six_saferpay", "**/*.rb")].sort.each do |file|
   require file
 end

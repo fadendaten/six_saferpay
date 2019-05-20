@@ -11,9 +11,9 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Success: @success)
-      body.merge!(Fail: @fail)
-      body.merge!(Abort: @abort) if @abort
+      body.merge!(success: @success)
+      body.merge!(fail: @fail)
+      body.merge!(abort: @abort) if @abort
       body
     end
     alias_method :to_h, :to_hash

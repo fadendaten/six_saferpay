@@ -20,7 +20,11 @@ module SixSaferpay
         key = key.to_s.underscore
         key.to_sym
       end
-      @object.response_class.new(hash)
+      if @response.code == "200"
+        @object.response_class.new(hash)
+      else
+        raise SixSaferpay::Error.new(hash)
+      end
     end
 
     private

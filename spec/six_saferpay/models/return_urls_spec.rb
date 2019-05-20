@@ -4,15 +4,13 @@ RSpec.describe SixSaferpay::ReturnUrls do
 
   subject { described_class.new }
 
-  let(:success_url) { 'http://localhost:3004' }
-  let(:fail_url) { 'http://localhost:3004' }
+  let(:success) { 'http://localhost:3004' }
+  let(:fail) { 'http://localhost:3004' }
 
   let(:hash) {
     {
-      'ReturnUrls': {
-        'Success': success_url,
-        'Fail': fail_url
-      }
+      'success': success,
+      'fail': fail
     }
   }
 

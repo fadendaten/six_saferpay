@@ -7,11 +7,11 @@ RSpec.describe 'SixPaymentPage' do
 
   before(:all) do
 
-    @amount = 100
-    @currency = 'CHF'
+    @value = 100
+    @currency_code = 'CHF'
     @order_id = 'R123456789'
     @description = 'Order R123456789'
-    @amount = SixSaferpay::Amount.new(value: @value, currency_code: @currency)
+    @amount = SixSaferpay::Amount.new(value: @value, currency_code: @currency_code)
     @payment = SixSaferpay::Payment.new(
       amount: @amount, order_id: @order_id, description: @description)
 
@@ -109,7 +109,6 @@ RSpec.describe 'SixPaymentPage' do
     end
 
     it 'should hold a response header' do
-      require 'pry'; binding.pry
       response_header = @capture_response.response_header
       expect(response_header).to be_a(SixSaferpay::ResponseHeader)
     end
@@ -117,7 +116,21 @@ RSpec.describe 'SixPaymentPage' do
     it 'should hold a capture_id' do
       capture_id = @capture_response.capture_id
       expect(capture_id).to be_a(String)
-      expect(capture_id).to be('dd')
+      expect(capture_id).to eq('GSrI17AlCIEvUAU8zfvWbrArft7A')
+    end
+
+    it 'should hold a status' do
+      status = @capture_response.status
+      expect(status).to be_a(String)
+      expect(status).to eq('CAPTURED')
+    end
+
+    it 'should hold a date' do
+      date = DateTime.parse(@capture_response.date)
+      expect(date).to be_a(DateTime)
+      expect(date.day).to eq(21)
+      expect(date.month).to eq(5)
+      expect(date.year).to eq(2019)
     end
   end
 

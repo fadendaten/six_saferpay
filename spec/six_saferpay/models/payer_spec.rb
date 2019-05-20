@@ -2,15 +2,13 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Payer do
 
-  let(:language) { 'en' }
+  let(:language_code) { 'en' }
 
-  subject { described_class.new(language: language) }
+  subject { described_class.new(language_code: language_code) }
 
   let(:hash) {
     {
-      Payer: {
-        LanguageCode: language
-      }
+      language_code: language_code
     }
   }
 

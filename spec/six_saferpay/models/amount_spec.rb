@@ -3,18 +3,16 @@ require 'spec_helper'
 RSpec.describe SixSaferpay::Amount do
 
   let(:value) { '100' }
-  let(:currency) { 'CHF' }
+  let(:currency_code) { 'CHF' }
 
   let(:hash) {
     {
-      Amount: {
-        Value: value,
-        CurrencyCode: currency
-      }
+      value: value,
+      currency_code: currency_code
     }
   }
 
-  subject { described_class.new(value: value, currency: currency) }
+  subject { described_class.new(value: value, currency_code: currency_code) }
 
   describe 'to_hash' do
     it 'returns the hash representation of the transaction' do

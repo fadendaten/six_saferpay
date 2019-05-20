@@ -9,7 +9,7 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(CertificateExpirationDate: @certificate_expiration_date)
+      body.merge!(certificate_expiration_date: @certificate_expiration_date)
       body
     end
     alias_method :to_h, :to_hash
