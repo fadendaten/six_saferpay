@@ -1,6 +1,6 @@
 module SixSaferpay
   module API
-    module Transaction
+    module SixTransaction
       class Cancel
 
         attr_accessor :request_header, :transaction_reference

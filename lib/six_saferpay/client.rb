@@ -14,14 +14,26 @@ module SixSaferpay
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       @response = https.request(request)
-      @object.response_class.new(JSON.parse(@response.body, symbolize_names: true))
+      body = @response.body
+      hash = JSON.parse(body, symbolize_names: true)
+      hash = hash.deep_transform_keys do |key|
+        key = key.to_s.underscore
+        key.to_sym
+      end
+      @object.response_class.new(hash)
     end
 
     private
 
     def request
       request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
-      request.body = @object.to_h.to_json
+      hash = @object.to_h
+      hash = hash.deep_transform_keys do |key|
+        key = key.to_s.camelize
+        key.to_sym
+      end
+      body = hash.to_json
+      request.body = body
       request.basic_auth(username, password)
       @request = request
     end

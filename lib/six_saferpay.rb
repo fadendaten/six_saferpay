@@ -1,29 +1,12 @@
-require 'six_saferpay/api'
-require 'six_saferpay/client'
-require 'six_saferpay/error'
-require 'six_saferpay/model'
-require 'six_saferpay/version'
-
-require 'six_saferpay/models/amount'
-require 'six_saferpay/models/client_info'
-require 'six_saferpay/models/config_set'
-require 'six_saferpay/models/expiration'
-require 'six_saferpay/models/payer'
-require 'six_saferpay/models/payment'
-require 'six_saferpay/models/redirect_url'
-require 'six_saferpay/models/request_header'
-require 'six_saferpay/models/response_header'
-require 'six_saferpay/models/return_urls'
-require 'six_saferpay/models/styling'
-require 'six_saferpay/models/terminal'
-require 'six_saferpay/models/token'
-require 'six_saferpay/models/transaction'
-require 'six_saferpay/models/transaction_reference'
-require 'six_saferpay/models/verification_code'
-
+require 'active_support/core_ext/hash'
+require 'active_support/core_ext/string'
 require 'securerandom'
 require 'json'
 require 'net/http'
+
+Dir[File.join("./lib/six_saferpay/", "**/*.rb")].sort.each do |file|
+  require file
+end
 
 module SixSaferpay
 

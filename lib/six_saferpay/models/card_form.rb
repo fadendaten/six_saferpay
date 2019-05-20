@@ -8,9 +8,9 @@ module SixSaferpay
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(HolderName: @holder_name) if @holder_name
-      body
+      hash = Hash.new
+      hash.merge!(holder_name: @holder_name) if @holder_name
+      hash
     end
     alias_method :to_h, :to_hash
 

@@ -3,23 +3,23 @@ require 'vcr_helper'
 require 'date'
 require 'tty-prompt'
 
-RSpec.describe 'PaymentPage' do
+RSpec.describe 'SixPaymentPage' do
 
   before(:all) do
 
-    @value = 100
+    @amount = 100
     @currency = 'CHF'
     @order_id = 'R123456789'
     @description = 'Order R123456789'
+    @amount = SixSaferpay::Amount.new(value: @value, currency_code: @currency)
+    @payment = SixSaferpay::Payment.new(
+      amount: @amount, order_id: @order_id, description: @description)
 
     cassette_exists = !(VCR::Helper.cassette_exists?('payment_page_initialize'))
 
     # Initialize Request
     VCR.use_cassette('payment_page_initialize') do
-      @initialize = SixSaferpay::PaymentPage::Initialize.new(value: @value,
-                                                            currency: @currency,
-                                                            order_id: @order_id,
-                                                            description: @description)
+      @initialize = SixSaferpay::SixPaymentPage::Initialize.new(payment: @payment)
       @initialize_response = SixSaferpay::Client.post(@initialize)
     end
 
@@ -35,15 +35,21 @@ RSpec.describe 'PaymentPage' do
 
     # Assert Request
     VCR.use_cassette('payment_page_assert') do
-      @assert = SixSaferpay::PaymentPage::Assert.new(token: @initialize_response.token)
+      @assert = SixSaferpay::SixPaymentPage::Assert.new(token: @initialize_response.token)
       @assert_response = SixSaferpay::Client.post(@assert)
     end
+
+    # # Capture Request
+    # VCR.use_cassette('transaction_capture') do
+    #   @capture = SixSaferpay::SixTransaction::Capture.new(
+
+    # end
   end
 
-  describe 'initialize', :vcr do
-    it 'should return a SixSaferpay::PaymentPage::InitializeResponse' do
+  describe 'initialize' do
+    it 'should return a SixSaferpay::SixPaymentPage::InitializeResponse' do
       expect(@initialize_response)
-        .to be_a(SixSaferpay::PaymentPage::InitializeResponse)
+        .to be_a(SixSaferpay::SixPaymentPage::InitializeResponse)
     end
 
     it 'should hold a token of the size 25' do
@@ -59,6 +65,38 @@ RSpec.describe 'PaymentPage' do
       redirect_url = URI.parse(@initialize_response.redirect_url)
       expect(redirect_url).to be_a(URI)
       expect(redirect_url.port).to be(443)
+    end
+  end
+
+  describe 'assert' do
+    it 'should return a SixSaferPay::SixPaymentPage::AssertResponse' do
+      expect(@assert_response)
+        .to be_a(SixSaferpay::SixPaymentPage::AssertResponse)
+    end
+
+    it 'should hold a response header' do
+      response_header = @assert_response.response_header
+      expect(response_header).to be_a(SixSaferpay::ResponseHeader)
+    end
+
+    it 'should hold a transaction' do
+      transaction = @assert_response.transaction
+      expect(transaction).to be_a(SixSaferpay::Transaction)
+    end
+
+    it 'should hold a payer' do
+      payer = @assert_response.payer
+      expect(payer).to be_a(SixSaferpay::Payer)
+    end
+
+    it 'should hold the payment_means' do
+      payment_means = @assert_response.payment_means
+      expect(payment_means).to be_a(SixSaferpay::PaymentMeans)
+    end
+
+    it 'should hold a liability' do
+      liability = @assert_response.liability
+      expect(liability).to be_a(SixSaferpay::Liability)
     end
   end
 

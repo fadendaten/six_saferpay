@@ -1,6 +1,6 @@
 module SixSaferpay
   module API
-    module Transaction
+    module SixTransaction
       class Authorization
 
         attr_accessor :request_header, :token, :verification_code

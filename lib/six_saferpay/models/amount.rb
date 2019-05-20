@@ -10,8 +10,8 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Value: @value)
-      body.merge!(CurrencyCode: @currency_code)
+      body.merge!(value: @value)
+      body.merge!(currency_code: @currency_code)
     end
     alias_method :to_h, :to_hash
 

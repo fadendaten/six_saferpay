@@ -18,27 +18,27 @@ module SixSaferpay
                    options: nil,
                    recurring: nil,
                    installment: nil)
-      @amount = amount
-      @order_id = SixSaferpay::Ororder_id
+      @amount = SixSaferpay::Amount.new(amount.to_h) if amount
+      @order_id = order_id
       @description = description
       @payer_note = payer_note
       @mandate_id = mandate_id
-      @options = options
-      @recurring = recurring
-      @installment = installment
+      @options = SixSaferpay::Options.new(options.to_h) if options
+      @recurring = SixSaferpay.new(recurring.to_h) if recurring
+      @installment = SixSaferpay::Installment.new(installment.to_h) if installment
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(Amount: @amount.to_h)
-      body.merge!(OrderId: @order_id) if @order_id
-      body.merge!(Description: @description)
-      body.merge!(PayerNote: @payer_note) if @payer_note
-      body.merge!(MandateId: @mandate_id) if @mandate_id
-      body.merge!(Options: @options.to_h) if @options
-      body.merge!(Recurring: @recurring.to_h) if @recurring
-      body.merge!(Installment: @installment.to_h) if @installment
-      body
+      hash = Hash.new
+      hash.merge!(amount: @amount.to_h)
+      hash.merge!(order_id: @order_id) if @order_id
+      hash.merge!(description: @description)
+      hash.merge!(payer_note: @payer_note) if @payer_note
+      hash.merge!(mandate_id: @mandate_id) if @mandate_id
+      hash.merge!(options: @options.to_h) if @options
+      hash.merge!(recurring: @recurring.to_h) if @recurring
+      hash.merge!(installment: @installment.to_h) if @installment
+      hash
     end
     alias_method :to_h, :to_hash
   end

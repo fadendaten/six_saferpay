@@ -5,11 +5,12 @@ module SixSaferpay
                   :type,
                   :status,
                   :id,
+                  :capture_id,
                   :date,
                   :amount,
                   :order_id,
-                  :acquire_name,
-                  :acquire_reference,
+                  :acquirer_name,
+                  :acquirer_reference,
                   :six_transaction_reference,
                   :approval_code,
                   :direct_debit,
@@ -19,28 +20,30 @@ module SixSaferpay
     def initialize(type:,
                    status:,
                    id:,
+                   capture_id: nil,
                    date:,
                    amount:,
                    order_id: nil,
-                   acquire_name: nil,
-                   acquire_reference: nil,
+                   acquirer_name: nil,
+                   acquirer_reference: nil,
                    six_transaction_reference:,
-                   approval_code:,
-                   direct_debit:,
-                   invoice:
+                   approval_code: nil,
+                   direct_debit: nil,
+                   invoice: nil
                   )
       @type = type
       @status = status
       @id = id
+      @capture_id = capture_id
       @date = date
-      @amount = amount
+      @amount = SixSaferpay::Amount.new(amount)
       @order_id = order_id
-      @acquire_name = acquire_name
-      @acquire_reference = acquire_reference
+      @acquirer_name = acquirer_name
+      @acquirer_reference = acquirer_reference
       @six_transaction_reference = six_transaction_reference
       @approval_code = approval_code
-      @direct_debit = direct_debit
-      @invoice = invoice
+      @direct_debit = SixSaferpay::DirectDebit.new(direct_debit) if direct_debit 
+      @invoice = SixSaferpay::Invoice.new(invoice) if invoice
     end
 
     def to_hash
@@ -48,11 +51,12 @@ module SixSaferpay
       body.merge!(Type: @type)
       body.merge!(Status: @status)
       body.merge!(Id: @id)
+      body.merge!(CaptureId: @capture_id) if @capture_id
       body.merge!(Date: @date)
       body.merge!(Amount: @amount.to_h)
       body.merge!(OrderId: @order_id) if @order_id
-      body.merge!(AcquirerName: @acquire_name) if @acquire_name
-      body.merge!(AcquirerReference: @acquire_reference) if @acquire_reference
+      body.merge!(AcquirerName: @acquirer_name) if @acquirer_name
+      body.merge!(AcquirerReference: @acquirer_reference) if @acquirer_reference
       body.merge!(SixTransactionReference: @six_transaction_reference)
       body.merge!(ApprovalCode: @approval_code) if @approval_code
       body.merge!(DirectDebit: @direct_debit.to_h) if @direct_debit

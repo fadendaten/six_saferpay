@@ -9,10 +9,10 @@ module SixSaferpay
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(ShopInfo: @shop_info)
-      body.merge!(OsInfo: @os_info)
-      body
+      hash = Hash.new
+      hash.merge!(shop_info: @shop_info)
+      hash.merge!(os_info: @os_info)
+      hash
     end
     alias_method :to_h, :to_hash
 
