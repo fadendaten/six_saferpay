@@ -4,7 +4,7 @@ module SixSaferpay
     attr_accessor(:payer_amount)
 
     def initialize(payer_amount:)
-      @payer_amount = SixSaferpay::PayerAmount(payer_amount.to_h)
+      @payer_amount = SixSaferpay::PayerAmount.new(payer_amount.to_h)
     end
 
     def to_hash
