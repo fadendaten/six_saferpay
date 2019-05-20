@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    six_saferpay (0.0.1)
+    six_saferpay (0.1.0)
       activesupport (>= 5.0.0.0)
 
 GEM
@@ -65,7 +65,6 @@ GEM
     spoon (0.0.6)
       ffi
     thread_safe (0.3.6)
-    thread_safe (0.3.6-java)
     timers (4.3.0)
     tty-color (0.4.3)
     tty-cursor (0.6.1)

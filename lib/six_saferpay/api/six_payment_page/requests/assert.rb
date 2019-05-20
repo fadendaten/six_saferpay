@@ -11,8 +11,8 @@ module SixSaferpay
 
       def to_hash
         hash = Hash.new
-        hash.merge!(@request_header.to_h)
-        hash.merge!(Token: @token)
+        hash.merge!(request_header: @request_header.to_h)
+        hash.merge!(token: @token)
         hash
       end
       alias_method :to_h, :to_hash
