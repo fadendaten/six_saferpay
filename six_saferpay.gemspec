@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Write a short summary, because RubyGems requires one.}
   spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "http://fadendaten.ch"
+  spec.homepage      = "https://github.com/fadendaten/six_saferpa://github.com/fadendaten/six_saferpay"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
@@ -23,15 +23,15 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'activesupport', '>= 5.0.0.0'
+  spec.add_runtime_dependency 'activesupport', '~> 5.0', '>= 5.0.0.0'
 
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'vcr', '~> 4.0.0'
-  spec.add_development_dependency 'webmock', '~> 3.5.1'
-  spec.add_development_dependency 'dotenv', '~> 2.7.0'
+  spec.add_development_dependency 'vcr', '~> 4.0', '>= 4.0.0'
+  spec.add_development_dependency 'webmock', '~> 3.5', '>= 3.5.1'
+  spec.add_development_dependency 'dotenv', '~> 2.7', '>= 2.7'
   spec.add_development_dependency 'pry', '~> 0.12.0'
   spec.add_development_dependency 'tty-prompt', '~> 0.18'
   spec.add_development_dependency 'simplecov', '~> 0.16'
