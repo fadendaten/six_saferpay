@@ -5,14 +5,16 @@ RSpec.describe SixSaferpay::Amount do
   let(:value) { '100' }
   let(:currency_code) { 'CHF' }
 
+  let(:amount) { SpinningWheel.create('amount') }
+
   let(:hash) {
     {
-      value: value,
-      currency_code: currency_code
+      value: amount.value,
+      currency_code: amount.currency_code
     }
   }
 
-  subject { described_class.new(value: value, currency_code: currency_code) }
+  subject  { amount }
 
   describe 'to_hash' do
     it 'returns the hash representation of the transaction' do

@@ -20,10 +20,10 @@ module SixSaferpay
 
     def to_hash
       body = Hash.new
-      body.merge!(Type: @type)
-      body.merge!(PaymentMethods: @payment_methods) if @payment_methods
-      body.merge!(RequestDeliveryAddress: @request_delivery_address) if @request_delivery_address
-      body.merge!(EnableAmountAdjustment: @enable_amount_adjustment) if @enable_amount_adjustment
+      body.merge!(type: @type)
+      body.merge!(payment_methods: @payment_methods) if @payment_methods
+      body.merge!(request_delivery_address: @request_delivery_address) if @request_delivery_address
+      body.merge!(enable_amount_adjustment: @enable_amount_adjustment) if @enable_amount_adjustment
       body
     end
     alias_method :to_h, :to_hash

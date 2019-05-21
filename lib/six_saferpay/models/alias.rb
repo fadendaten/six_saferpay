@@ -1,21 +1,21 @@
 module SixSaferpay
-  class PaymentMeans
+  class Alias
 
     attr_accessor(:id,
-                  :verification_code
+                  :lifetime
                  )
 
     def initialize(id:,
-                   verification_code: nil
+                   lifetime: nil
                   )
       @id = id
-      @verification_code = verification_code
+      @lifetime = lifetime
     end
 
     def to_hash
       body = Hash.new
-      body.merge!(Id: @id)
-      body.merge!(VerificationCode: @verification_code) if @verification_code
+      body.merge!(id: @id) if @id
+      body.merge!(lifetime: @lifetime) if @lifetime
       body
     end
     alias_method :to_h, :to_hash
