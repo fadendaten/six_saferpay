@@ -1,5 +1,5 @@
 module SixSaferpay
-  class Alias
+  class RegistrationAlias
 
     attr_accessor(:id,
                   :lifetime

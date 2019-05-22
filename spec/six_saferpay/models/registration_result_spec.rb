@@ -7,8 +7,8 @@ RSpec.describe SixSaferpay::RegistrationResult do
   let(:hash) {
     {
       success: registration_result.success,
-      alias: registration_result.alias,
-      error: registration_result.error
+      fd_alias: registration_result.fd_alias.to_h,
+      error: registration_result.error.to_h
     }
   }
 
