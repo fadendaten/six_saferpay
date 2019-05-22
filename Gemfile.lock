@@ -62,6 +62,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
+    spinning_wheel (0.1.0)
+      activesupport (~> 5.0, >= 5.0.0.0)
     spoon (0.0.6)
       ffi
     thread_safe (0.3.6)
@@ -101,6 +103,7 @@ DEPENDENCIES
   rspec (~> 3.0)
   simplecov (~> 0.16)
   six_saferpay!
+  spinning_wheel (~> 0.1)
   tty-prompt (~> 0.18)
   vcr (~> 4.0, >= 4.0.0)
   webmock (~> 3.5, >= 3.5.1)

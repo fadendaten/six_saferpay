@@ -8,6 +8,14 @@ require "bundler/setup"
 require "six_saferpay"
 require 'pry'
 require 'vcr'
+require 'spinning_wheel'
+
+spec = Gem::Specification.find_by_name("six_saferpay")
+gem_root = spec.gem_dir
+
+Dir[File.join(gem_root, "spec", "fabrics", "**/*.rb")].sort.each do |file|
+  require file
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

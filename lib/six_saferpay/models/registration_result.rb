@@ -8,11 +8,12 @@ module SixSaferpay
 
 
     def initialize(success:,
-                   alias: nil,
+                   __alias__: nil,
                    error: nil)
 
+      binding.pry
       @success = success
-      @alias = SixSaferpay::Alias.new(__alias__.to_h) if __alias__
+      # @alias = SixSaferpay::Alias.new(__alias__.to_h) if __alias__
       @error = SixSaferpay::Error.new(error.to_h) if error
     end
 
