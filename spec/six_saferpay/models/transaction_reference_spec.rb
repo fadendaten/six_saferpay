@@ -2,13 +2,12 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::TransactionReference do
 
-  let(:transaction_id) { '723n4MAjMdhjSAhAKEUdA8jtl9jb' }
-
-  subject { described_class.new(transaction_id: transaction_id) }
+  subject { SpinningWheel.create('transaction_reference') }
 
   let(:hash) {
     {
-      transaction_id: transaction_id
+      transaction_id: subject.transaction_id,
+      order_id: subject.order_id
     }
   }
 

@@ -12,7 +12,7 @@ module SixSaferpay
     def to_hash
       hash = Hash.new
       hash.merge!(css_url: @css_url) if @css_url
-      hash.merge!(content_security_enabled: @content_security_enabled) if @content_security_enabled
+      hash.merge!(content_security_enabled: @content_security_enabled) if !@content_security_enabled.nil?
       hash.merge!(theme: @theme) if @theme
       hash
     end

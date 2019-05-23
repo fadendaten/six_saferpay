@@ -21,7 +21,7 @@ module SixSaferpay
                     )
         @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h)
         @transaction = SixSaferpay::Transaction.new(transaction.to_h)
-        @payment_means = SixSaferpay::PaymentMeans.new(payment_means.to_h)
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h)
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
         @registration_result = SixSaferpay::RegistrationResult.new(registration_result.to_h) if registration_result
         @liability = SixSaferpay::Liability.new(liability.to_h) if liability

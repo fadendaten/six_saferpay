@@ -2,18 +2,16 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Wallet do
 
-  let(:wallet) { SpinningWheel.create('wallet') }
+  subject { SpinningWheel.create('wallet') }
 
   let(:hash) {
     {
-      type: wallet.type,
-      payment_methods: wallet.payment_methods,
-      request_delivery_address: wallet.request_delivery_address,
-      enable_amount_adjustment: wallet.enable_amount_adjustment
+      type: subject.type,
+      payment_methods: subject.payment_methods,
+      request_delivery_address: subject.request_delivery_address,
+      enable_amount_adjustment: subject.enable_amount_adjustment
     }
   }
-
-  subject { wallet }
 
   describe 'to_hash' do
     it 'returns the hash representation of the wallet' do

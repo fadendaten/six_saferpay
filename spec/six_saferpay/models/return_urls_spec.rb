@@ -2,15 +2,13 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::ReturnUrls do
 
-  subject { described_class.new }
-
-  let(:success) { 'http://localhost:3004' }
-  let(:fail) { 'http://localhost:3004' }
+  subject { SpinningWheel.create('return_urls') }
 
   let(:hash) {
     {
-      'success': success,
-      'fail': fail
+      success: subject.success,
+      fd_fail: subject.fd_fail,
+      fd_abort: subject.fd_abort
     }
   }
 

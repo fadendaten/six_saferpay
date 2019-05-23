@@ -1,5 +1,5 @@
 module SixSaferpay
-  class ClientInfo < Model
+  class ClientInfo 
 
     attr_accessor :shop_info, :os_info
 
@@ -10,8 +10,8 @@ module SixSaferpay
 
     def to_hash
       hash = Hash.new
-      hash.merge!(shop_info: @shop_info)
-      hash.merge!(os_info: @os_info)
+      hash.merge!(shop_info: @shop_info) if @shop_info
+      hash.merge!(os_info: @os_info) if @os_info
       hash
     end
     alias_method :to_h, :to_hash

@@ -22,13 +22,13 @@ module SixSaferpay
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(IBAN: @iban) if @iban
-      body.merge!(holder_name: @holder_name) if @holder_name
-      body.merge!(BIC: @bic) if @bic
-      body.merge!(bank_name: @bank_name)
-      body.merge!(country_code: @country_code)
-      body
+      hash = Hash.new
+      hash.merge!(iban: @iban) if @iban
+      hash.merge!(holder_name: @holder_name) if @holder_name
+      hash.merge!(bic: @bic) if @bic
+      hash.merge!(bank_name: @bank_name)
+      hash.merge!(country_code: @country_code)
+      hash
     end
     alias_method :to_h, :to_hash
 

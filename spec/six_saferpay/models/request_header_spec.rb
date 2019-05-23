@@ -2,22 +2,15 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::RequestHeader do
 
-  subject { described_class.new() }
-
-  let(:customer_id) { '245294' }
-  let(:request_id) { SecureRandom.uuid }
-  let(:retry_indicator) { 0 }
-
-  before do
-    subject.request_id = request_id
-  end
+  subject { SpinningWheel.create('request_header') }
 
   let(:hash) {
     {
-      spec_version: SixSaferpay::API::VERSION,
-      customer_id: customer_id,
-      request_id: request_id,
-      retry_indicator: retry_indicator
+      spec_version: subject.spec_version,
+      customer_id: subject.customer_id,
+      request_id: subject.request_id,
+      retry_indicator: subject.retry_indicator,
+      client_info: subject.client_info.to_h
     }
   }
 

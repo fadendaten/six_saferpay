@@ -9,7 +9,7 @@ module SixSaferpay
 
     def to_hash
       hash = Hash.new
-      hash.merge!(pre_auth: @pre_auth) if @pre_auth
+      hash.merge!(pre_auth: @pre_auth) if !@pre_auth.nil?
       hash
     end
     alias_method :to_h, :to_hash

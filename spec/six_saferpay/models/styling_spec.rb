@@ -2,11 +2,13 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Styling do
 
-  subject { described_class.new }
+  subject { SpinningWheel.create('styling') }
 
   let(:hash) {
     {
-      'css_url': 'http://localhost:3004/six_payment.css'
+      css_url: subject.css_url,
+      content_security_enabled:  subject.content_security_enabled,
+      theme: subject.theme
     }
   }
 

@@ -1,19 +1,19 @@
 module SixSaferpay
   class ReturnUrls
 
-    attr_accessor :success, :fail, :abort
+    attr_accessor :success, :fd_fail, :fd_abort
 
-    def initialize(success: nil, fail: nil, abort: nil)
+    def initialize(success: nil, fd_fail: nil, fd_abort: nil)
       @success = success || SixSaferpay.config.success_url
-      @fail = fail || SixSaferpay.config.fail_url
-      @abort = abort
+      @fd_fail = fd_fail || SixSaferpay.config.fail_url
+      @fd_abort = fd_abort
     end
 
     def to_hash
       body = Hash.new
-      body.merge!(success: @success)
-      body.merge!(fail: @fail)
-      body.merge!(abort: @abort) if @abort
+      body.merge!(success: @success) if @success
+      body.merge!(fd_fail: @fd_fail) if @fd_fail
+      body.merge!(fd_abort: @fd_abort) if @fd_abort
       body
     end
     alias_method :to_h, :to_hash

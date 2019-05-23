@@ -2,13 +2,15 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Payer do
 
-  let(:language_code) { 'en' }
-
-  subject { described_class.new(language_code: language_code) }
+  subject { SpinningWheel.create('payer') }
 
   let(:hash) {
     {
-      language_code: language_code
+      ip_address: subject.ip_address,
+      ip_location: subject.ip_location,
+      language_code: subject.language_code,
+      delivery_address: subject.delivery_address.to_h,
+      billing_address: subject.billing_address.to_h
     }
   }
 

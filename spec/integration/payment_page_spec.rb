@@ -93,7 +93,7 @@ RSpec.describe 'SixPaymentPage' do
 
     it 'should hold the payment_means' do
       payment_means = @assert_response.payment_means
-      expect(payment_means).to be_a(SixSaferpay::PaymentMeans)
+      expect(payment_means).to be_a(SixSaferpay::ResponsePaymentMeans)
     end
 
     it 'should hold a liability' do

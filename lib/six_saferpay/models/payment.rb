@@ -24,7 +24,7 @@ module SixSaferpay
       @payer_note = payer_note
       @mandate_id = mandate_id
       @options = SixSaferpay::Options.new(options.to_h) if options
-      @recurring = SixSaferpay.new(recurring.to_h) if recurring
+      @recurring = SixSaferpay::Recurring.new(recurring.to_h) if recurring
       @installment = SixSaferpay::Installment.new(installment.to_h) if installment
     end
 

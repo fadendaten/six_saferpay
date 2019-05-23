@@ -1,5 +1,5 @@
 module SixSaferpay
-  class PaymentMeans
+  class ResponsePaymentMeans
 
     attr_accessor(:brand,
                   :display_text,
@@ -19,20 +19,20 @@ module SixSaferpay
       @brand = SixSaferpay::Brand.new(brand.to_h) if brand
       @display_text = display_text
       @wallet = wallet
-      @card = SixSaferpay::Card.new(card.to_h) if card
-      @bank_account = bank_account
+      @card = SixSaferpay::ResponseCard.new(card.to_h) if card
+      @bank_account = SixSaferpay::BankAccount.new(bank_account.to_h) if bank_account
       @twint = SixSaferpay::Twint.new(twint.to_h) if twint
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(brand: @brand.to_h)
-      body.merge!(display_text: @display_text)
-      body.merge!(wallet: @wallet) if @wallet
-      body.merge!(card: @card.to_h) if @card
-      body.merge!(bank_account: @bank_account) if @bank_account
-      body.merge!(twint: @twint.to_h) if @twint
-      body
+      hash = Hash.new
+      hash.merge!(brand: @brand.to_h)
+      hash.merge!(display_text: @display_text)
+      hash.merge!(wallet: @wallet) if @wallet
+      hash.merge!(card: @card.to_h) if @card
+      hash.merge!(bank_account: @bank_account.to_h) if @bank_account
+      hash.merge!(twint: @twint.to_h) if @twint
+      hash
     end
     alias_method :to_h, :to_hash
 

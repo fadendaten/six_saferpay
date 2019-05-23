@@ -2,17 +2,15 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::FraudFree do
 
-  let(:fraud_free) { SpinningWheel.create('fraud_free') }
+  subject { SpinningWheel.create('fraud_free') }
 
   let(:hash) {
     {
-      id: fraud_free.id,
-      liability_shift: fraud_free.liability_shift,
-      score: fraud_free.score
+      id: subject.id,
+      liability_shift: subject.liability_shift,
+      score: subject.score
     }
   }
-
-  subject { fraud_free }
 
   describe 'to_hash' do
     it 'returns the hash representation of the fraud free' do

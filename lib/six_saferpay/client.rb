@@ -18,6 +18,10 @@ module SixSaferpay
       hash = JSON.parse(body, symbolize_names: true)
       hash = hash.deep_transform_keys do |key|
         key = key.to_s.underscore
+        key.gsub!(/^name/,'fd_name')
+        key.gsub!(/^alias/,'fd_alias')
+        key.gsub!(/^abort/,'fd_abort')
+        key.gsub!(/^fail/,'fd_fail')
         key.to_sym
       end
       if @response.code == "200"
@@ -34,6 +38,7 @@ module SixSaferpay
       hash = @object.to_h
       hash = hash.deep_transform_keys do |key|
         key = key.to_s.camelize
+        key.gsub!('fd_','')
         key.to_sym
       end
       body = hash.to_json

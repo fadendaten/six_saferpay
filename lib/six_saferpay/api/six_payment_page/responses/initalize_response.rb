@@ -28,17 +28,6 @@ module SixSaferpay
       end
       alias_method :to_h, :to_hash
 
-      def token
-        @token
-      end
-
-      def expiration
-        @expiration
-      end
-
-      def redirect_url
-        @redirect_url
-      end
     end
   end
 end

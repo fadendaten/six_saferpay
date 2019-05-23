@@ -2,44 +2,29 @@ require 'spec_helper'
 
 RSpec.describe SixSaferpay::Address do
 
-  let(:first_name) { 'F' }
-  let(:last_name) { 'FF' }
-  let(:date_of_birth) { '2019-01-01'  }
-  let(:company) { 'C' }
-  let(:gender) { 'male' }
-  let(:street) { 'L' }
-  let(:zip) { 1234 }
-  let(:city) { 'Bern' }
-  let(:phone) { '122333' }
-  let(:email) { 'test@example.com' }
-
-
-  subject { described_class.new(
-    first_name: first_name,
-    last_name: last_name,
-    date_of_birth: date_of_birth,
-    company: company,
-    zip: zip,
-    city: city,
-    phone: phone,
-    email: email
-  )}
+  subject { SpinningWheel.create('address') }
 
   let(:hash) {
     {
-      first_name: first_name,
-      last_name: last_name,
-      date_of_birth: date_of_birth,
-      company: company,
-      zip: zip,
-      city: city,
-      phone: phone,
-      email: email
+      first_name: subject.first_name,
+      last_name: subject.last_name,
+      date_of_birth: subject.date_of_birth,
+      company: subject.company,
+      legal_form: subject.legal_form,
+      street: subject.street,
+      street_2: subject.street_2,
+      gender: subject.gender,
+      zip: subject.zip,
+      city: subject.city,
+      country_subdevision_code: subject.country_subdevision_code,
+      country_code: subject.country_code,
+      phone: subject.phone,
+      email: subject.email
     }
   }
 
   describe 'to_hash' do
-    it 'returns the hash representation of the styling' do
+    it 'returns the hash representation of the address' do
       expect(subject.to_hash).to eq(hash)
     end
   end
