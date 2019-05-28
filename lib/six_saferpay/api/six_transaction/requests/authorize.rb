@@ -2,11 +2,12 @@ module SixSaferpay
   module SixTransaction
     class Authorize
 
-      attr_accessor :request_header,
+      attr_accessor(:request_header,
                     :token,
                     :condition,
                     :verification_code,
                     :register_alias
+                   )
 
 
       def initialize(request_header: nil,
