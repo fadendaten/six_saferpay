@@ -3,10 +3,6 @@
 
 # SixSaferpay
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/six_saferpay`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,9 +19,69 @@ Or install it yourself as:
 
     $ gem install six_saferpay
 
+
+## Configuration
+
+Please configure your gem:
+
+```ruby
+SixSaferpay.configure do |config|
+  config.customer_id = YOUR_SIX_SAFERPAY_CUSTOMER_ID
+  config.terminal_id = YOUR_SIX_SAFERPAY_TERMINAL_ID
+  config.username = YOUR_SIX_SAFERPAY_USERNAME
+  config.password = YOUR_SIX_SAFERPAY_PASSWORD
+  config.success_url = YOUR_SIX_SAFERPAY_SUCCESS_URL
+  config.fail_url = YOUR_SIX_SAFERPAY_FAIL_URL
+  config.base_url = YOUR_SIX_SAFERPAY_BASE_URL
+  config.css_url = YOUR_SIX_SAFERPAY_CSS_URL
+end
+
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+SIX Saferpay provides multiple interfaces. We give you a short introduction in the usage of the gem by showing you two examples for the initialize requests.
+
+### SIX Saferpay Payment Page
+
+The SIX Saferpay Payment Page is a simple implementation of the payment gateway of SIX.
+
+#### PaymentPage Initialize
+
+Before we start we have to create a two basic objects. The first object is the ```SixSaferpay::Amount```. This object represents the value of your cart in the currency you sell your products. The second object is the ```SixSaferpay::Payment```. This object represents the payment a user of your shop will do. As you can see, the amount object is includes in this object.
+
+```ruby
+amount = SixSaferpay::Amount.new(value: 100, currency_code: "CHF")
+payment = SixSaferpay::Payment.new(amount: amount, order_id: 1234, description: 'Order #1234')
+```
+
+After we create those two objects, we can create the initialize object for the SIX Saferpay Payment Page.
+
+```ruby
+initialize = SixSaferpay::SixPaymentPage::Initialize.new(payment: payment)
+```
+
+Now we can send the initialize request to the API. We can use the client object to send a post request to the API.
+
+```ruby
+initialize_response = SixSaferpay::Client.post(initialize)
+```
+The client will return a response object. After an initialize request, the client will return you a initialize response object (```SixSaferpay::InitializeResponse```).
+
+If the request goes wrong the client raises a ```SixSaferpay::Error```
+
+#### Other Requests
+
+You will find for all the other requests an predefined object. Feel free to use this according the SIX Saferpay API documentation.
+
+## Documentation
+
+### SIX Saferpay Transaction
+
+TODO
+
+
+[https://saferpay.github.io/jsonapi](Saferpay JSON API)
 
 ## Development
 

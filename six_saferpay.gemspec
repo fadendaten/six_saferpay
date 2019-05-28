@@ -6,12 +6,12 @@ require "six_saferpay/version"
 Gem::Specification.new do |spec|
   spec.name          = "six_saferpay"
   spec.version       = SixSaferpay::VERSION
-  spec.authors       = ["Felix Langenegger"]
+  spec.authors       = ["Fadendaten GmbH", "Felix Langenegger"]
   spec.email         = ["felix.langenegger@fadendaten.ch"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
-  spec.homepage      = "https://github.com/fadendaten/six_saferpa://github.com/fadendaten/six_saferpay"
+  spec.summary       = %q{Gem for the SIX Saferpay API}
+  spec.description   = %q{This Gem helps you consume the SIX Saferpay API. Accoring the documentation of API of SIX Saferpay you can define your request models and get a response object back.}
+  spec.homepage      = "https://github.com/fadendaten/six_saferpay"
   spec.license       = "MIT"
 
   # Specify which files should be added to the gem when it is released.
