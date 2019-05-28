@@ -74,11 +74,11 @@ If the request goes wrong the client raises a ```SixSaferpay::Error```
 
 You will find for all the other requests an predefined object. Feel free to use this according the SIX Saferpay API documentation.
 
-## Documentation
-
 ### SIX Saferpay Transaction
 
 TODO
+
+## Documentation
 
 
 [https://saferpay.github.io/jsonapi](Saferpay JSON API)
