@@ -111,7 +111,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 - [x] Capture
 - [x] MultipartCapture
 - [x] AssertCapture
-- [ ] MultipartFinalize
+- [x] MultipartFinalize
 - [x] Refund
 - [x] AssertRefund
 - [ ] RefundDirect
