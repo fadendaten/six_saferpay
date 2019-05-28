@@ -122,19 +122,19 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 #### SIX Secure Care Data
 
-- [ ] Insert
-- [ ] AssertInsert
-- [ ] InsertDirect
-- [ ] Delete
+- [x] Insert
+- [x] AssertInsert
+- [x] InsertDirect
+- [x] Delete
 
 #### SIX Batch
 
-- [ ] Close
+- [x] Close
 
 #### SIX OmniChannel
 
-- [ ] InsertAlias
-- [ ] AcquireTransaction
+- [x] InsertAlias
+- [x] AcquireTransaction
 
 ## License
 
