@@ -33,6 +33,11 @@ module SixSaferpay
       def url
         '/Payment/v1/Transaction/AdjustAmount'
       end
+
+      def response_class
+        SixSaferpay::SixTransaction::AdjustAmountResponse
+      end
+
     end
   end
 end
