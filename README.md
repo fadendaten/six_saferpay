@@ -114,22 +114,22 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 - [x] MultipartFinalize
 - [x] Refund
 - [x] AssertRefund
-- [ ] RefundDirect
+- [x] RefundDirect
 - [x] Cancel
-- [ ] RedirectPayment
-- [ ] AssertRedirectPayment
-- [ ] Inquire
+- ~~[ ] RedirectPayment~~ (Deprecated)
+- ~~[ ] AssertRedirectPayment~~ (Deprecated)
+- [x] Inquire
 
 #### SIX Secure Care Data
 
-- [ ] Alias Insert
-- [ ] Alias AssertInsert
-- [ ] Alias InsertDirect
-- [ ] Alias Delete
+- [ ] Insert
+- [ ] AssertInsert
+- [ ] InsertDirect
+- [ ] Delete
 
 #### SIX Batch
 
-- [ ] Batch Close
+- [ ] Close
 
 #### SIX OmniChannel
 

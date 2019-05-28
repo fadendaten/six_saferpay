@@ -2,11 +2,11 @@ module SixSaferpay
   module SixTransaction
     class Refund
 
-      attr_accessor :request_header,
-        :refund,
-        :capture_reference,
-        :pending_notification
-
+      attr_accessor(:request_header,
+                    :refund,
+                    :capture_reference,
+                    :pending_notification
+                   )
 
 
       def initialize(request_header: nil,
