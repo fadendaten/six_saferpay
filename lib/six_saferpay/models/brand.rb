@@ -1,17 +1,17 @@
 module SixSaferpay
   class Brand
 
-    attr_accessor(:payment_method, :fd_name)
+    attr_accessor(:payment_method, :name)
 
-    def initialize(payment_method: nil, fd_name:)
+    def initialize(payment_method: nil, name:)
       @payment_method = payment_method
-      @fd_name = fd_name
+      @name = name
     end
 
     def to_hash
       hash = Hash.new
       hash.merge!(payment_method: @payment_method) if @payment_method
-      hash.merge!(fd_name: @fd_name) if @fd_name
+      hash.merge!(name: @name) if @name
       hash
     end
     alias_method :to_h, :to_hash

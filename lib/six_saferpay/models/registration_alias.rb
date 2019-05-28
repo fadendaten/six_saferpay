@@ -13,10 +13,10 @@ module SixSaferpay
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(id: @id) if @id
-      body.merge!(lifetime: @lifetime) if @lifetime
-      body
+      hash = Hash.new
+      hash.merge!(id: @id) if @id
+      hash.merge!(lifetime: @lifetime) if @lifetime
+      hash
     end
     alias_method :to_h, :to_hash
   end

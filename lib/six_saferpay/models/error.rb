@@ -13,8 +13,8 @@ module SixSaferpay
 
       binding.pry
       @success = success
-      @fd_alias = SixSaferpay::Alias.new(fd_alias.to_h) if fd_alias
-      @error = SixSaferpay::Error.new(error.to_h) if error
+      @fd_alias = SixSaferpay::RegistrationAlias.new(fd_alias.to_h) if fd_alias
+      @error = SixSaferpay::RegistrationError.new(error.to_h) if error
     end
 
     def to_hash

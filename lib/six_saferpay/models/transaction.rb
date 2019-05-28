@@ -47,21 +47,21 @@ module SixSaferpay
     end
 
     def to_hash
-      body = Hash.new
-      body.merge!(type: @type)
-      body.merge!(status: @status)
-      body.merge!(id: @id)
-      body.merge!(capture_id: @capture_id) if @capture_id
-      body.merge!(date: @date)
-      body.merge!(amount: @amount.to_h)
-      body.merge!(order_id: @order_id) if @order_id
-      body.merge!(acquirer_name: @acquirer_name) if @acquirer_name
-      body.merge!(acquirer_reference: @acquirer_reference) if @acquirer_reference
-      body.merge!(six_transaction_reference: @six_transaction_reference)
-      body.merge!(approval_code: @approval_code) if @approval_code
-      body.merge!(direct_debit: @direct_debit.to_h) if @direct_debit
-      body.merge!(invoice: @invoice.to_h) if @invoice
-      body
+      hash = Hash.new
+      hash.merge!(type: @type)
+      hash.merge!(status: @status)
+      hash.merge!(id: @id)
+      hash.merge!(capture_id: @capture_id) if @capture_id
+      hash.merge!(date: @date)
+      hash.merge!(amount: @amount.to_h)
+      hash.merge!(order_id: @order_id) if @order_id
+      hash.merge!(acquirer_name: @acquirer_name) if @acquirer_name
+      hash.merge!(acquirer_reference: @acquirer_reference) if @acquirer_reference
+      hash.merge!(six_transaction_reference: @six_transaction_reference)
+      hash.merge!(approval_code: @approval_code) if @approval_code
+      hash.merge!(direct_debit: @direct_debit.to_h) if @direct_debit
+      hash.merge!(invoice: @invoice.to_h) if @invoice
+      hash
     end
     alias_method :to_h, :to_hash
 

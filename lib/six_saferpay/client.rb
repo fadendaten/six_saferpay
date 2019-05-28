@@ -14,11 +14,10 @@ module SixSaferpay
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
       @response = https.request(request)
-      body = @response.body
-      hash = JSON.parse(body, symbolize_names: true)
+      hash = @response.body
+      hash = JSON.parse(hash, symbolize_names: true)
       hash = hash.deep_transform_keys do |key|
         key = key.to_s.underscore
-        key.gsub!(/^name/,'fd_name')
         key.gsub!(/^alias/,'fd_alias')
         key.gsub!(/^abort/,'fd_abort')
         key.gsub!(/^fail/,'fd_fail')
@@ -41,8 +40,8 @@ module SixSaferpay
         key.gsub!('fd_','')
         key.to_sym
       end
-      body = hash.to_json
-      request.body = body
+      hash = hash.to_json
+      request.body = hash
       request.basic_auth(username, password)
       @request = request
     end

@@ -8,7 +8,9 @@ RSpec.describe SixSaferpay::FraudFree do
     {
       id: subject.id,
       liability_shift: subject.liability_shift,
-      score: subject.score
+      score: subject.score,
+      investigation_points: subject.investigation_points,
+      error_message: subject.error_message
     }
   }
 

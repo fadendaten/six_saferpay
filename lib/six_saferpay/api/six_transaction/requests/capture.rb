@@ -30,6 +30,7 @@ module SixSaferpay
         hash = Hash.new
         hash.merge!(request_header: @request_header.to_h) if @request_header
         hash.merge!(transaction_reference: @transaction_reference.to_h) if @transaction_reference
+        hash.merge!(amount: @amount.to_h) if @amount
         hash.merge!(billpay: @billpay.to_h) if @billpay
         hash.merge!(pending_notifiction: @pending_notifiction.to_h) if @pending_notifiction
         hash.merge!(marketplace: @marketplace.to_h) if @marketplace

@@ -19,7 +19,6 @@ module SixSaferpay
         :delivery_address_form,
         :card_form,
         :condition
-
       )
 
       def initialize(request_header: nil,
@@ -40,7 +39,7 @@ module SixSaferpay
                      condition: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @config_set = @config_set
+        @config_set = config_set
         @terminal_id = terminal_id || SixSaferpay.config.terminal_id
         @payment = SixSaferpay::Payment.new(payment.to_h) if payment
         @payment_methods = payment_methods
@@ -64,7 +63,7 @@ module SixSaferpay
         hash.merge!(terminal_id: @terminal_id)
         hash.merge!(payment: @payment.to_h)
         hash.merge!(payment_methods: @payment_methods) if @payment_methods
-        hash.merge!(payment_methods_options: @payment_methods_options) if @payment_methods_options
+        hash.merge!(payment_methods_options: @payment_methods_options.to_h) if @payment_methods_options
         hash.merge!(wallets: @wallets) if @wallets
         hash.merge!(payer: @payer.to_h) if @payer
         hash.merge!(register_alias: @register_alias.to_h) if @register_alias
@@ -74,7 +73,7 @@ module SixSaferpay
         hash.merge!(billing_address_form: @billing_address_form.to_h) if @billing_address_form
         hash.merge!(delivery_address_form: @delivery_address_form.to_h) if @delivery_address_form
         hash.merge!(card_form: @card_form.to_h) if @card_form
-        hash.merge!(condition: @codition) if @condition
+        hash.merge!(condition: @condition) if @condition
         hash
       end
       alias_method :to_h, :to_hash

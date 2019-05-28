@@ -1,32 +1,30 @@
 module SixSaferpay
-  module API
-    module SixTransaction
-      class Cancel
+  module SixTransaction
+    class Cancel
 
-        attr_accessor :request_header, :transaction_reference
+      attr_accessor :request_header,
+                    :transaction_reference
 
-        def initialize(transaction_id)
-          @request_header = SixSaferpay::RequestHeader.new
-          @transaction_reference = SixSaferpay::TransactionReference
-            .new(transaction_id)
-        end
 
-        def to_hash
-          hash = Hash.new
-          hash.merge!(@request_header.to_h)
-          hash.merge!(@transaction_reference.to_h)
-          hash
-        end
-        alias_method :to_h, :to_hash
+      def initialize(request_header: nil, transaction_reference:)
+        @request_header = request_header || SixSaferpay::RequestHeader.new()
+        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
+      end
 
-        def to_json
-          to_hash.to_json
-        end
+      def to_hash
+        hash = Hash.new
+        hash.merge!(request_header: @request_header.to_h) if @request_header
+        hash.merge!(transaction_reference: @transaction_reference.to_h) if @transaction_reference
+        hash
+      end
+      alias_method :to_h, :to_hash
 
-        def url
-          '/Payment/v1/Transaction/Cancel'
-        end
+      def to_json
+        to_hash.to_json
+      end
 
+      def url
+        '/Payment/v1/Transaction/Cancel'
       end
     end
   end

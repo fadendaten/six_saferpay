@@ -62,7 +62,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    spinning_wheel (0.1.0)
+    spinning_wheel (0.2.0)
       activesupport (~> 5.0, >= 5.0.0.0)
     spoon (0.0.6)
       ffi

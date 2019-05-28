@@ -1,4 +1,4 @@
 module SixSaferpay
-  class SixRefund < SixSaferpay::Amount
+  class SixSaferpay::FeeRefund < SixSaferpay::Amount
   end
 end

@@ -16,12 +16,11 @@ RSpec.describe SixSaferpay::SixTransaction::Initialize do
       wallet: subject.wallet.to_h,
       payment_methods: subject.payment_methods,
       card_form: subject.card_form.to_h
-
     }
   }
 
   describe 'to_hash' do
-    it 'returns the hash representation of the address' do
+    it 'returns the hash representation of the six transaction initialize' do
       expect(subject.to_hash).to eq(hash)
     end
   end
