@@ -25,7 +25,7 @@ module SixSaferpay
 
       def to_hash
         hash = Hash.new
-        hash.merge!(request_header: @request_header.to_h) if @register_alias
+        hash.merge!(request_header: @request_header.to_h) if @request_header
         hash.merge!(token: @token) if @token
         hash.merge!(condition: @condition) if @condition
         hash.merge!(verification_code: @verification_code) if @verification_code
