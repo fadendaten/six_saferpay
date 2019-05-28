@@ -1,21 +1,27 @@
 module SixSaferpay
   module SixTransaction
-    class AssertRefund
+    class AdjustAmount
 
       attr_accessor(:request_header,
-                    :transaction_reference)
+                    :token,
+                    :amount
+                   )
+
 
 
       def initialize(request_header: nil,
-                     transaction_reference: )
+                     token: ,
+                     amount: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
+        @token = token
+        @amount = SixSaferpay::Amount.new(amount.to_h) if amount
       end
 
       def to_hash
         hash = Hash.new
         hash.merge!(request_header: @request_header.to_h) if @request_header
-        hash.merge!(transaction_reference: @transaction_reference.to_h) if @transaction_reference
+        hash.merge!(token: @token) if @token
+        hash.merge!(amount: @amount.to_h) if @amount
         hash
       end
       alias_method :to_h, :to_hash
@@ -25,7 +31,7 @@ module SixSaferpay
       end
 
       def url
-        '/Payment/v1/Transaction/AssertRefund'
+        '/Payment/v1/Transaction/AdjustAmount'
       end
     end
   end
