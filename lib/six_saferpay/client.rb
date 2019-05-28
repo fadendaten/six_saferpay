@@ -16,13 +16,7 @@ module SixSaferpay
       @response = https.request(request)
       hash = @response.body
       hash = JSON.parse(hash, symbolize_names: true)
-      hash = hash.deep_transform_keys do |key|
-        key = key.to_s.underscore
-        key.gsub!(/^alias/,'fd_alias')
-        key.gsub!(/^abort/,'fd_abort')
-        key.gsub!(/^fail/,'fd_fail')
-        key.to_sym
-      end
+      hash = transform_response_hash(hash)
       if @response.code == "200"
         @object.response_class.new(hash)
       else
@@ -35,11 +29,7 @@ module SixSaferpay
     def request
       request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
       hash = @object.to_h
-      hash = hash.deep_transform_keys do |key|
-        key = key.to_s.camelize
-        key.gsub!('fd_','')
-        key.to_sym
-      end
+      hash = transform_request_hash(hash)
       hash = hash.to_json
       request.body = hash
       request.basic_auth(username, password)
@@ -60,6 +50,25 @@ module SixSaferpay
 
     def password
       SixSaferpay.config.password
+    end
+
+    def transform_request_hash(hash)
+      hash = hash.deep_transform_keys do |key|
+        key = key.to_s
+        key.gsub!('fd_','')
+        key = key.camelize
+        key.to_sym
+      end
+    end
+
+    def transform_response_hash(hash)
+      hash = hash.deep_transform_keys do |key|
+        key = key.to_s.underscore
+        key.gsub!(/^alias/,'fd_alias')
+        key.gsub!(/^abort/,'fd_abort')
+        key.gsub!(/^fail/,'fd_fail')
+        key.to_sym
+      end
     end
 
   end
