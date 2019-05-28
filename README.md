@@ -116,8 +116,8 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 - [x] AssertRefund
 - [x] RefundDirect
 - [x] Cancel
-- ~~[ ] RedirectPayment~~ (Deprecated)
-- ~~[ ] AssertRedirectPayment~~ (Deprecated)
+- ~~RedirectPayment~~ (Deprecated)
+- ~~AssertRedirectPayment~~ (Deprecated)
 - [x] Inquire
 
 #### SIX Secure Care Data
