@@ -80,8 +80,7 @@ TODO
 
 ## Documentation
 
-
-[https://saferpay.github.io/jsonapi](Saferpay JSON API)
+[SIX Saferpay JSON API](https://saferpay.github.io/jsonapi)
 
 ## Development
 
@@ -92,6 +91,49 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/six_saferpay.
+
+### Implementation Status
+
+#### SIX Payment Page
+
+- [x] Initialize
+- [x] Assert
+
+#### SIX Transaction
+
+- [x] Initialize
+- [x] Authorize
+- [x] QueryPaymentMeans
+- [x] AdjustAmount
+- [x] AuthorizeDirect
+- [x] AuthorizeReferenced
+- [x] Capture
+- [x] MultipartCapture
+- [x] AssertCapture
+- [ ] MultipartFinalize
+- [x] Refund
+- [x] AssertRefund
+- [ ] RefundDirect
+- [x] Cancel
+- [ ] RedirectPayment
+- [ ] AssertRedirectPayment
+- [ ] Inquire
+
+#### SIX Secure Care Data
+
+- [ ] Alias Insert
+- [ ] Alias AssertInsert
+- [ ] Alias InsertDirect
+- [ ] Alias Delete
+
+#### SIX Batch
+
+- [ ] Batch Close
+
+#### SIX OmniChannel
+
+- [ ] InsertAlias
+- [ ] AcquireTransaction
 
 ## License
 
