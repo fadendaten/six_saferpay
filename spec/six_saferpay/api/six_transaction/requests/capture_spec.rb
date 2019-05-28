@@ -10,7 +10,7 @@ RSpec.describe SixSaferpay::SixTransaction::Capture do
       transaction_reference: subject.transaction_reference.to_h,
       amount: subject.amount.to_h,
       billpay: subject.billpay.to_h,
-      pending_notifiction: subject.pending_notifiction.to_h,
+      pending_notification: subject.pending_notification.to_h,
       marketplace: subject.marketplace.to_h
     }
   }

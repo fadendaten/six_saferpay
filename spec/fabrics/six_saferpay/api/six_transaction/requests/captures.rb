@@ -4,7 +4,7 @@ SpinningWheel.define do
     transaction_reference { SpinningWheel.create('transaction_reference') }
     amount { SpinningWheel.create('amount') }
     billpay { SpinningWheel.create('billpay') }
-    pending_notifiction { SpinningWheel.create('pending_notifiction') }
+    pending_notification { SpinningWheel.create('pending_notification') }
     marketplace { SpinningWheel.create('marketplace') }
   end
 end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    six_saferpay (0.1.10)
+    six_saferpay (1.0.0)
       activesupport (~> 5.0, >= 5.0.0.0)
 
 GEM

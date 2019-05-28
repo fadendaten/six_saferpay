@@ -6,7 +6,7 @@ module SixSaferpay
                     :transaction_reference,
                     :amount,
                     :billpay,
-                    :pending_notifiction,
+                    :pending_notification,
                     :marketplace
                    )
 
@@ -15,14 +15,14 @@ module SixSaferpay
                      transaction_reference:,
                      amount: nil,
                      billpay: nil,
-                     pending_notifiction: nil,
+                     pending_notification: nil,
                      marketplace: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
         @amount = SixSaferpay::Amount.new(amount.to_h) if amount
         @billpay = SixSaferpay::Billpay.new(billpay.to_h) if billpay
-        @pending_notifiction = SixSaferpay::PendingNotification.new(pending_notifiction.to_h) if pending_notifiction
+        @pending_notification = SixSaferpay::PendingNotification.new(pending_notification.to_h) if pending_notification
         @marketplace = SixSaferpay::Marketplace.new(marketplace.to_h) if marketplace
       end
 
@@ -32,7 +32,7 @@ module SixSaferpay
         hash.merge!(transaction_reference: @transaction_reference.to_h) if @transaction_reference
         hash.merge!(amount: @amount.to_h) if @amount
         hash.merge!(billpay: @billpay.to_h) if @billpay
-        hash.merge!(pending_notifiction: @pending_notifiction.to_h) if @pending_notifiction
+        hash.merge!(pending_notification: @pending_notification.to_h) if @pending_notification
         hash.merge!(marketplace: @marketplace.to_h) if @marketplace
         hash
       end
