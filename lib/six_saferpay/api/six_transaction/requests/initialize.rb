@@ -67,6 +67,10 @@ module SixSaferpay
         '/Payment/v1/Transaction/Initialize'
       end
 
+      def response_class
+        SixSaferpay::SixTransaction::InitializeResponse
+      end
+
     end
   end
 end

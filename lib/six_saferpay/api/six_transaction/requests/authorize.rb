@@ -41,6 +41,10 @@ module SixSaferpay
       def url
         '/Payment/v1/Transaction/Authorize'
       end
+
+      def response_class
+        SixSaferpay::SixTransaction::AuthorizeResponse
+      end
     end
   end
 end

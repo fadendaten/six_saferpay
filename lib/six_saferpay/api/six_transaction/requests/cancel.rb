@@ -26,6 +26,10 @@ module SixSaferpay
       def url
         '/Payment/v1/Transaction/Cancel'
       end
+
+      def response_class
+        SixSaferpay::SixTransaction::CancelResponse
+      end
     end
   end
 end

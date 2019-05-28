@@ -27,6 +27,10 @@ module SixSaferpay
       def url
         '/Payment/v1/Transaction/AssertRefund'
       end
+
+      def response_class
+        SixSaferpay::SixTransaction::AssertRefundResponse
+      end
     end
   end
 end
