@@ -120,7 +120,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 - ~~AssertRedirectPayment~~ (Deprecated)
 - [x] Inquire
 
-#### SIX Secure Care Data
+#### SIX Secure Card Data
 
 - [x] Insert
 - [x] AssertInsert
