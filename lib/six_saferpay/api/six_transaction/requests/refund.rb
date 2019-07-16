@@ -34,11 +34,11 @@ module SixSaferpay
       end
 
       def url
-        '/Payment/v1/Transaction/QueryPaymentMeans'
+        '/Payment/v1/Transaction/Refund'
       end
 
       def response_class
-        SixSaferpay::SixTransaction::RefundRespose
+        SixSaferpay::SixTransaction::RefundResponse
       end
     end
   end
