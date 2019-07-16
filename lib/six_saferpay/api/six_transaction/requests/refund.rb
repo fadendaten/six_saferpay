@@ -38,7 +38,7 @@ module SixSaferpay
       end
 
       def response_class
-        SixSaferpay::SixTransaction::RefundRespose
+        SixSaferpay::SixTransaction::RefundResponse
       end
     end
   end
