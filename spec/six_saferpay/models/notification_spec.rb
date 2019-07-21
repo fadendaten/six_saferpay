@@ -6,7 +6,7 @@ RSpec.describe SixSaferpay::Notification do
 
   let(:hash) {
     {
-      merchant_email: subject.merchant_email,
+      merchant_emails: subject.merchant_emails,
       payer_email: subject.payer_email,
       notify_url: subject.notify_url
     }

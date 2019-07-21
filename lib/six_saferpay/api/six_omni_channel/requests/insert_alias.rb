@@ -28,11 +28,11 @@ module SixSaferpay
       end
 
       def url
-        '/Payment/v1/OmniChannel/InsertAssert'
+        '/Payment/v1/OmniChannel/InsertAlias'
       end
 
       def response_class
-        SixSaferpay::SixOmniChannel::InsertAssertResponse
+        SixSaferpay::SixOmniChannel::InsertAliasResponse
       end
 
     end

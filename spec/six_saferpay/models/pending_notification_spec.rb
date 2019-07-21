@@ -6,7 +6,7 @@ RSpec.describe SixSaferpay::PendingNotification do
 
   let(:hash) {
     {
-      merchant_email: subject.merchant_email,
+      merchant_emails: subject.merchant_emails,
       notify_url: subject.notify_url
     }
   }

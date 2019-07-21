@@ -38,4 +38,8 @@ RSpec.describe SixSaferpay::ResponseHeader do
       expect(subject.full_message).to eq(error_string)
     end
   end
+
+  describe 'message' do 
+    it { expect(subject.message).to eq(error_string) }
+  end
 end
