@@ -11,7 +11,7 @@ module SixSaferpay
       def initialize(response_header:,
                      transaction_id:,
                      order_id: nil,
-                     date: nile
+                     date: nil
                     )
         @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
         @transaction_id = transaction_id
