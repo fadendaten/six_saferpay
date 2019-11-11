@@ -58,7 +58,7 @@ module SixSaferpay
       hash.merge!(gender: @gender) if @gender
       hash.merge!(legal_form: @legal_form) if @legal_form
       hash.merge!(street: @street) if @street
-      hash.merge!(street_2: @street_2) if @street_2
+      hash.merge!(street_2: @street_2) if @street_2.present?
       hash.merge!(zip: @zip) if @zip
       hash.merge!(city: @city) if @city
       hash.merge!(country_subdevision_code: @country_subdevision_code) if @country_subdevision_code
