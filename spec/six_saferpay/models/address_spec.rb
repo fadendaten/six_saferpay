@@ -28,4 +28,29 @@ RSpec.describe SixSaferpay::Address do
       expect(subject.to_hash).to eq(hash)
     end
   end
+
+  context 'when street_2 is an empty string', :focus do
+    let(:address) do
+      SixSaferpay::Address.new(
+        first_name: subject.first_name,
+        last_name: subject.last_name,
+        date_of_birth: subject.date_of_birth,
+        company: subject.company,
+        legal_form: subject.legal_form,
+        street: subject.street,
+        street_2: "",
+        gender: subject.gender,
+        zip: subject.zip,
+        city: subject.city,
+        country_subdevision_code: subject.country_subdevision_code,
+        country_code: subject.country_code,
+        phone: subject.phone,
+        email: subject.email,
+      )
+    end
+
+    it 'is not added to the hash' do
+      expect(address.to_hash.keys).not_to include(:street_2)
+    end
+  end
 end
