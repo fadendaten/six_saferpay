@@ -12,7 +12,7 @@ RSpec.describe SixSaferpay::PaymentMethodsOptions do
 
 
   describe 'to_hash' do
-    it 'returns the hash representation of the payment method options' do
+    it 'returns the hash representation of the payment methods options' do
       expect(subject.to_hash).to eq(hash)
     end
   end
