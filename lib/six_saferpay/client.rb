@@ -24,10 +24,16 @@ module SixSaferpay
       end
     end
 
+    protected
+
+    def header
+      {'Content-Type': 'application/json'}
+    end
+
     private
 
     def request
-      request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
+      request = Net::HTTP::Post.new(uri.path, header)
       hash = @object.to_h
       hash = transform_request_hash(hash)
       hash = hash.to_json

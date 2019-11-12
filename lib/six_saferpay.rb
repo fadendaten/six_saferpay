@@ -21,6 +21,7 @@ module SixSaferpay
       :password,
       :success_url,
       :fail_url,
+      :json_api_url,
       :base_url,
       :css_url
   end
