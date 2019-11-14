@@ -12,7 +12,7 @@ RSpec.describe SixSaferpay::Address do
       company: subject.company,
       legal_form: subject.legal_form,
       street: subject.street,
-      street_2: subject.street_2,
+      street2: subject.street2,
       gender: subject.gender,
       zip: subject.zip,
       city: subject.city,
@@ -29,7 +29,7 @@ RSpec.describe SixSaferpay::Address do
     end
   end
 
-  context 'when street_2 is an empty string', :focus do
+  context 'when street2 is an empty string', :focus do
     let(:address) do
       SixSaferpay::Address.new(
         first_name: subject.first_name,
@@ -38,7 +38,7 @@ RSpec.describe SixSaferpay::Address do
         company: subject.company,
         legal_form: subject.legal_form,
         street: subject.street,
-        street_2: "",
+        street2: "",
         gender: subject.gender,
         zip: subject.zip,
         city: subject.city,
@@ -50,7 +50,7 @@ RSpec.describe SixSaferpay::Address do
     end
 
     it 'is not added to the hash' do
-      expect(address.to_hash.keys).not_to include(:street_2)
+      expect(address.to_hash.keys).not_to include(:street2)
     end
   end
 end
