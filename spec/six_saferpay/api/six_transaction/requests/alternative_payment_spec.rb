@@ -13,6 +13,7 @@ RSpec.describe SixSaferpay::SixTransaction::AlternativePayment do
       terminal_id: subject.terminal_id,
       payment: subject.payment.to_h,
       payment_method: subject.payment_method,
+      payment_method_options: subject.payment_method_options.to_h,
       payer: subject.payer.to_h,
       notification: subject.notification.to_h
     }

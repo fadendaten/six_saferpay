@@ -7,7 +7,7 @@ SpinningWheel.define do
     gender { 'COMPANY' }
     legal_form { 'AG' }
     street { 'Bakerstreet 32' }
-    street_2 { 'Stewart House' }
+    street2 { 'Stewart House' }
     zip { '8000' }
     city { 'Zurich' }
     country_subdevision_code { 'ZH' }

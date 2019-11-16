@@ -8,7 +8,7 @@ module SixSaferpay
                   :gender,
                   :legal_form,
                   :street,
-                  :street_2,
+                  :street2,
                   :zip,
                   :city,
                   :country_subdevision_code,
@@ -25,7 +25,7 @@ module SixSaferpay
                   gender: nil,
                   legal_form: nil,
                   street: nil,
-                  street_2: nil,
+                  street2: nil,
                   zip: nil,
                   city: nil,
                   country_subdevision_code: nil,
@@ -40,7 +40,7 @@ module SixSaferpay
       @gender = gender
       @legal_form = legal_form
       @street = street
-      @street_2 = street_2
+      @street2 = street2
       @zip = zip
       @city = city
       @country_subdevision_code = country_subdevision_code
@@ -58,7 +58,7 @@ module SixSaferpay
       hash.merge!(gender: @gender) if @gender
       hash.merge!(legal_form: @legal_form) if @legal_form
       hash.merge!(street: @street) if @street
-      hash.merge!(street_2: @street_2) if @street_2.present?
+      hash.merge!(street2: @street2) if @street2.present?
       hash.merge!(zip: @zip) if @zip
       hash.merge!(city: @city) if @city
       hash.merge!(country_subdevision_code: @country_subdevision_code) if @country_subdevision_code
