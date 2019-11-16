@@ -4,6 +4,10 @@
 
 # SixSaferpay
 
+## Current API Version
+
+This gem is compatible with the SIX API version: `1.14`
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -79,6 +83,15 @@ You will find for all the other requests an predefined object. Feel free to use 
 
 TODO
 
+#### SIX Secure PayGate API
+
+If you want to use the SIX Secure PayGate API, you have to use an other Client:
+
+```ruby
+create_offer_request = SixSaferpay::SecurePayGateOffer.new(...)
+create_offer_response = SixSaferpay::SecurePayGateApi::Client.new(create_offer_request)
+```
+
 ## Documentation
 
 [SIX Saferpay JSON API](https://saferpay.github.io/jsonapi)
@@ -135,6 +148,10 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 - [x] InsertAlias
 - [x] AcquireTransaction
+
+#### Secure PayGate API
+
+- [x] CreateOffer
 
 ## License
 
