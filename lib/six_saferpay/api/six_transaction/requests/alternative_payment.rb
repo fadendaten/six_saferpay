@@ -6,6 +6,7 @@ module SixSaferpay
                     :terminal_id,
                     :payment,
                     :payment_method,
+                    :payment_method_options,
                     :payer,
                     :notification
                    )
@@ -16,12 +17,14 @@ module SixSaferpay
                      terminal_id:,
                      payment:,
                      payment_method:,
+                     payment_method_options: nil,
                      payer: nil,
                      notification: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = terminal_id
         @payment = SixSaferpay::Payment.new(payment.to_h)
         @payment_method = payment_method
+        @payment_method_options = SixSaferpay::PaymentMethodOptions.new(payment_method_options.to_h) if payment_method_options
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
         @notification = SixSaferpay::Notification.new(notification.to_h)
       end
@@ -32,6 +35,7 @@ module SixSaferpay
         hash.merge!(terminal_id: @terminal_id)
         hash.merge!(payment: @payment.to_h)
         hash.merge!(payment_method: @payment_method)
+        hash.merge!(payment_method_options: @payment_method_options.to_h) if @payment_method_options
         hash.merge!(payer: @payer.to_h) if @payer
         hash.merge!(notification: @notification.to_h)
         hash
