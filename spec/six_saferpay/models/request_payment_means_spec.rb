@@ -8,7 +8,8 @@ RSpec.describe SixSaferpay::RequestPaymentMeans do
     {
       card: subject.card.to_h,
       bank_account: subject.bank_account.to_h,
-      fd_alias: subject.fd_alias.to_h
+      fd_alias: subject.fd_alias.to_h,
+      saferpay_fields: subject.saferpay_fields.to_h
     }
   }
 
