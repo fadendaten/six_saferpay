@@ -3,6 +3,7 @@ SpinningWheel.define do
     card { SpinningWheel.create('request_card') }
     bank_account { SpinningWheel.create('bank_account') }
     fd_alias { SpinningWheel.create('payment_means_alias') }
+    saferpay_fields { SpinningWheel.create('saferpay_fields') }
   end
 end
 

@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://test.saferpay.com/api//rest/customers/245294/terminals/17925578/spg-offers
+    body:
+      encoding: UTF-8
+      string: '{"Payment":{"Amount":{"Value":100,"CurrencyCode":"CHF"},"OrderId":"R123456789","Description":"Order
+        R123456789"},"ExpirationDate":"2019-11-16","Payer":{"IpAddress":"127.0.0.1","LanguageCode":"de-ch","BillingAddress":{"FirstName":"John","LastName":"Doe","DateOfBirth":"1990-05-31","Company":"ACME
+        Corp.","Gender":"COMPANY","LegalForm":"AG","Street":"Bakerstreet 32","Street2":"Stewart
+        House","Zip":"8000","City":"Zurich","CountrySubdevisionCode":"ZH","CountryCode":"CH","Phone":"+41
+        12 345 6789","Email":"support@fadendaten.ch"}}}'
+    headers:
+      Content-Type:
+      - application/json
+      Saferpay-Apiversion:
+      - '1.14'
+      Saferpay-Requestid:
+      - '038e386b-3ea9-4c9e-8124-bff04f6d7672'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic QVBJXzI0NTI5NF8wODcwMDA2MzptZWk0WG9vemxlNGRvaTBB
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store, no-cache
+      Content-Length:
+      - '167'
+      Content-Type:
+      - application/json; charset=utf-8
+      Saferpay-Requestid:
+      - '038e386b-3ea9-4c9e-8124-bff04f6d7672'
+      Saferpay-Apiversion:
+      - '1.14'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Date:
+      - Sat, 16 Nov 2019 13:10:42 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"OfferId":"d7772ba1-d131-4396-8c8e-97eac481b31a","PaymentLink":"https://test.saferpay.com/SecurePayGate/Payment/245294/17925578/d7772ba1-d131-4396-8c8e-97eac481b31a"}'
+    http_version: 
+  recorded_at: Sat, 16 Nov 2019 13:10:42 GMT
+recorded_with: VCR 4.0.0
