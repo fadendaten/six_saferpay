@@ -17,7 +17,7 @@ module SixSaferpay
       hash = @response.body
       hash = JSON.parse(hash, symbolize_names: true)
       hash = transform_response_hash(hash)
-      if @response.code == "200"
+      if @response.code == '200'
         @object.response_class.new(hash)
       else
         raise SixSaferpay::Error.new(hash)
@@ -27,7 +27,7 @@ module SixSaferpay
     protected
 
     def header
-      {'Content-Type': 'application/json'}
+      {"Content-Type" => 'application/json'}
     end
 
     private

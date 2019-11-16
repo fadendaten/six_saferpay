@@ -13,14 +13,15 @@ module SixSaferpay
                      expiration_date: ,
                      config_set: nil,
                      payer: ,
-                     billing_address_form: 
+                     billing_address_form: nil
                     )
 
         @payment = SixSaferpay::Payment.new(payment.to_h) if payment
-        @expiration_date = expiration_date if expiration_date
-        @config_set = config_set if config_set
+        @expiration_date = expiration_date
+        @config_set = config_set
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @billing_address_form = SixSaferpay::BillingAddressForm.new(billing_address_form) if billing_address_form
+        @billing_address_form =
+          SixSaferpay::BillingAddressForm.new(billing_address_form) if billing_address_form
       end
 
       def to_hash

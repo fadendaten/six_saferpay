@@ -13,6 +13,6 @@ SpinningWheel.define do
     country_subdevision_code { 'ZH' }
     country_code { 'CH' }
     phone { '+41 12 345 6789' }
-    email { 'payer@provider.com' }
+    email { 'support@fadendaten.ch' }
   end
 end

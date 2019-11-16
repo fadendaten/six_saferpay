@@ -5,11 +5,10 @@ module SixSaferpay
       protected
 
       def header
-        header = super.header()
-        header.merge!(
+        super.merge!(
           {
-            'Saferpay-ApiVersion': SixSaferpay::API::VERSION,
-            'Saferpay-RequestId': request_id()
+            'Saferpay-ApiVersion' => SixSaferpay::API::VERSION,
+            'Saferpay-RequestId' => request_id()
           }
         )
       end
@@ -17,7 +16,7 @@ module SixSaferpay
       private
 
       def request_id
-        SecureRandom.uuid
+        @request_id ||= SecureRandom.uuid
       end
     end
   end
