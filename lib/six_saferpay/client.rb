@@ -17,17 +17,23 @@ module SixSaferpay
       hash = @response.body
       hash = JSON.parse(hash, symbolize_names: true)
       hash = transform_response_hash(hash)
-      if @response.code == "200"
+      if @response.code == '200'
         @object.response_class.new(hash)
       else
         raise SixSaferpay::Error.new(hash)
       end
     end
 
+    protected
+
+    def header
+      {"Content-Type" => 'application/json'}
+    end
+
     private
 
     def request
-      request = Net::HTTP::Post.new(uri.path, {'Content-Type' => 'application/json'})
+      request = Net::HTTP::Post.new(uri.path, header)
       hash = @object.to_h
       hash = transform_request_hash(hash)
       hash = hash.to_json
