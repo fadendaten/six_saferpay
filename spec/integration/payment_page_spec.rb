@@ -14,7 +14,6 @@ RSpec.describe 'SixPaymentPage' do
     @amount = SixSaferpay::Amount.new(value: @value, currency_code: @currency_code)
     @payment = SixSaferpay::Payment.new(
       amount: @amount, order_id: @order_id, description: @description)
-
     cassette_exists = !(VCR::Helper.cassette_exists?('payment_page_initialize'))
 
     # Initialize Request

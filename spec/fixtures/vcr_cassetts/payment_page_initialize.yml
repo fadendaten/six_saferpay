@@ -5,7 +5,7 @@ http_interactions:
     uri: https://test.saferpay.com/api//Payment/v1/PaymentPage/Initialize
     body:
       encoding: UTF-8
-      string: '{"RequestHeader":{"SpecVersion":"1.11","CustomerId":"245294","RequestId":"db584f37-dbfa-4335-bb6f-55dca2f9d3c9","RetryIndicator":0},"TerminalId":"17925560","Payment":{"Amount":{"Value":100,"CurrencyCode":"CHF"},"OrderId":"R123456789","Description":"Order
+      string: '{"RequestHeader":{"SpecVersion":"1.15","CustomerId":"245294","RequestId":"d06fedf4-6397-49f1-802d-9b3aab138891","RetryIndicator":0},"TerminalId":"17925578","Payment":{"Amount":{"Value":100,"CurrencyCode":"CHF"},"OrderId":"R123456789","Description":"Order
         R123456789"},"ReturnUrls":{"Success":"http://localhost:3004","Fail":"http://localhost:3004"}}'
     headers:
       Content-Type:
@@ -32,12 +32,12 @@ http_interactions:
       Strict-Transport-Security:
       - max-age=31536000
       Date:
-      - Mon, 20 May 2019 22:46:08 GMT
+      - Thu, 09 Jan 2020 10:55:38 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{"ResponseHeader":{"SpecVersion":"1.11","RequestId":"db584f37-dbfa-4335-bb6f-55dca2f9d3c9"},"Token":"1tsy5erj9sjaivk5ghbksucox","Expiration":"2019-05-21T01:46:08.597+02:00","RedirectUrl":"https://test.saferpay.com/vt2/api/PaymentPage/245294/17925560/1tsy5erj9sjaivk5ghbksucox"}'
+      string: '{"ResponseHeader":{"SpecVersion":"1.15","RequestId":"d06fedf4-6397-49f1-802d-9b3aab138891"},"Token":"jdegy0x8rzg1xfmcon727uk9a","Expiration":"2020-01-09T12:55:39.094+01:00","RedirectUrl":"https://test.saferpay.com/vt2/api/PaymentPage/245294/17925578/jdegy0x8rzg1xfmcon727uk9a"}'
     http_version: 
-  recorded_at: Mon, 20 May 2019 22:46:08 GMT
+  recorded_at: Thu, 09 Jan 2020 10:55:38 GMT
 recorded_with: VCR 4.0.0

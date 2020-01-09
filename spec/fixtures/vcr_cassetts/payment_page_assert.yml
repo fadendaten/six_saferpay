@@ -5,7 +5,7 @@ http_interactions:
     uri: https://test.saferpay.com/api//Payment/v1/PaymentPage/Assert
     body:
       encoding: UTF-8
-      string: '{"RequestHeader":{"SpecVersion":"1.11","CustomerId":"245294","RequestId":"0d184689-b154-4ba0-a066-ef864ca8eac6","RetryIndicator":0},"Token":"1tsy5erj9sjaivk5ghbksucox"}'
+      string: '{"RequestHeader":{"SpecVersion":"1.15","CustomerId":"245294","RequestId":"330e05ce-fa42-4570-9ad2-d805b578b982","RetryIndicator":0},"Token":"jdegy0x8rzg1xfmcon727uk9a"}'
     headers:
       Content-Type:
       - application/json
@@ -25,21 +25,21 @@ http_interactions:
       Cache-Control:
       - no-store, no-cache
       Content-Length:
-      - '934'
+      - '895'
       Content-Type:
       - application/json; charset=utf-8
       Strict-Transport-Security:
       - max-age=31536000
       Date:
-      - Mon, 20 May 2019 22:46:31 GMT
+      - Thu, 09 Jan 2020 10:55:58 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{"ResponseHeader":{"SpecVersion":"1.11","RequestId":"0d184689-b154-4ba0-a066-ef864ca8eac6"},"Transaction":{"Type":"PAYMENT","Status":"AUTHORIZED","Id":"GSrI17AlCIEvUAU8zfvWbrArft7A","Date":"2019-05-21T00:46:26.400+02:00","Amount":{"Value":"100","CurrencyCode":"CHF"},"OrderId":"R123456789","AcquirerName":"VISA
-        Saferpay Test","AcquirerReference":"16921560148","SixTransactionReference":"0:0:3:GSrI17AlCIEvUAU8zfvWbrArft7A","ApprovalCode":"459985"},"PaymentMeans":{"Brand":{"PaymentMethod":"VISA","Name":"VISA"},"DisplayText":"xxxx
-        xxxx xxxx 0004","Card":{"MaskedNumber":"xxxxxxxxxxxx0004","ExpYear":2019,"ExpMonth":5,"HolderName":"Yamada
-        Taro","CountryCode":"JP"}},"Payer":{"IpAddress":"178.196.36.247","IpLocation":"CH"},"Liability":{"LiabilityShift":true,"LiableEntity":"ThreeDs","ThreeDs":{"Authenticated":true,"LiabilityShift":true,"Xid":"MAxVbwhOUC0RBCFDJU8Adid3CAY="}},"Dcc":{"PayerAmount":{"Value":"138","CurrencyCode":"JPY"}}}'
+      string: '{"ResponseHeader":{"SpecVersion":"1.15","RequestId":"330e05ce-fa42-4570-9ad2-d805b578b982"},"Transaction":{"Type":"PAYMENT","Status":"AUTHORIZED","Id":"x7pvvIAMEYGhtAddG9IdArnfWO5A","Date":"2020-01-09T11:55:55.327+01:00","Amount":{"Value":"100","CurrencyCode":"CHF"},"OrderId":"R123456789","AcquirerName":"MasterCard
+        Saferpay Test","AcquirerReference":"6016521763","SixTransactionReference":"0:0:3:x7pvvIAMEYGhtAddG9IdArnfWO5A","ApprovalCode":"770706"},"PaymentMeans":{"Brand":{"PaymentMethod":"MASTERCARD","Name":"MasterCard"},"DisplayText":"xxxx
+        xxxx xxxx 0006","Card":{"MaskedNumber":"xxxxxxxxxxxx0006","ExpYear":2020,"ExpMonth":1,"HolderName":"John
+        Doe","CountryCode":"US"}},"Payer":{"IpAddress":"31.10.145.50","IpLocation":"CH"},"Liability":{"LiabilityShift":true,"LiableEntity":"ThreeDs","ThreeDs":{"Authenticated":true,"LiabilityShift":true,"Xid":"57b2bfd5-1cb0-4a57-937a-19c7e8f5b71d"}}}'
     http_version: 
-  recorded_at: Mon, 20 May 2019 22:46:31 GMT
+  recorded_at: Thu, 09 Jan 2020 10:55:58 GMT
 recorded_with: VCR 4.0.0

@@ -6,7 +6,8 @@ RSpec.describe SixSaferpay::PaymentMethodsOptions do
 
   let(:hash) {
     {
-      alipay: subject.alipay.to_h
+      alipay: subject.alipay.to_h,
+      ideal: subject.ideal.to_h
     }
   }
 
