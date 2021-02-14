@@ -8,7 +8,8 @@ RSpec.describe SixSaferpay::RegistrationResult do
     {
       success: subject.success,
       fd_alias: subject.fd_alias.to_h,
-      error: subject.error.to_h
+      error: subject.error.to_h,
+      authentication_result: subject.authentication_result.to_h
     }
   }
 
