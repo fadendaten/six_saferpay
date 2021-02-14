@@ -6,6 +6,9 @@ RSpec.describe SixSaferpay::Authentication do
 
   let(:hash) {
     {
+      result: subject.result,
+      message: subject.message,
+      xid: subject.xid,
       exemption: subject.exemption,
       three_ds_challenge: subject.three_ds_challenge
     }

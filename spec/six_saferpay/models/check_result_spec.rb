@@ -9,7 +9,7 @@ RSpec.describe SixSaferpay::CheckResult do
     let(:hash) {
       {
         result: subject.result,
-        message: subject.message
+        message: subject.message,
       }
     }
 
@@ -28,7 +28,8 @@ RSpec.describe SixSaferpay::CheckResult do
     let(:hash) {
       {
         result: subject.result,
-        message: subject.message
+        message: subject.message,
+        authentication: subject.authentication.to_h
       }
     }
 
