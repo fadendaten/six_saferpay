@@ -4,6 +4,7 @@ SpinningWheel.define do
     terminal_id { SixSaferpay.config.terminal_id || '12341234' }
     payment { SpinningWheel.create('payment') }
     payment_means { SpinningWheel.create('request_payment_means') }
+    authentication { SpinningWheel.create('authentication') }
     payer { SpinningWheel.create('payer') }
     return_urls { SpinningWheel.create('return_urls') }
     styling { SpinningWheel.create('styling') }
