@@ -9,6 +9,7 @@ module SixSaferpay
         :payment,
         :payment_methods,
         :payment_methods_options,
+        :authentication,
         :wallets,
         :payer,
         :register_alias,
@@ -27,6 +28,7 @@ module SixSaferpay
                      payment:,
                      payment_methods: nil,
                      payment_methods_options: nil,
+                     authentication: nil,
                      wallets: nil,
                      payer: nil,
                      register_alias: nil,
@@ -44,6 +46,7 @@ module SixSaferpay
         @payment = SixSaferpay::Payment.new(payment.to_h) if payment
         @payment_methods = payment_methods
         @payment_methods_options = SixSaferpay::PaymentMethodsOptions.new(payment_methods_options.to_h) if payment_methods_options
+        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
         @wallets = wallets
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
         @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
@@ -64,6 +67,7 @@ module SixSaferpay
         hash.merge!(payment: @payment.to_h)
         hash.merge!(payment_methods: @payment_methods) if @payment_methods
         hash.merge!(payment_methods_options: @payment_methods_options.to_h) if @payment_methods_options
+        hash.merge!(authentication: @authentication.to_h) if @authentication
         hash.merge!(wallets: @wallets) if @wallets
         hash.merge!(payer: @payer.to_h) if @payer
         hash.merge!(register_alias: @register_alias.to_h) if @register_alias

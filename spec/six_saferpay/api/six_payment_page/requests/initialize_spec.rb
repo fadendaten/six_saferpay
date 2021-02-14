@@ -15,6 +15,7 @@ RSpec.describe SixSaferpay::SixPaymentPage::Initialize do
       payment: subject.payment.to_h,
       payment_methods: subject.payment_methods,
       payment_methods_options: subject.payment_methods_options.to_h,
+      authentication: subject.authentication.to_h,
       wallets: subject.wallets,
       payer: subject.payer.to_h,
       register_alias: subject.register_alias.to_h,
