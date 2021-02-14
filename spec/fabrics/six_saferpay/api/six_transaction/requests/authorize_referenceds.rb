@@ -4,6 +4,7 @@ SpinningWheel.define do
     terminal_id { SixSaferpay.config.terminal_id }
     payment { SpinningWheel.create('payment') }
     transaction_reference { SpinningWheel.create('transaction_reference') }
+    authentication { SpinningWheel.create('authentication') }
     suppress_dcc { false }
   end
 end

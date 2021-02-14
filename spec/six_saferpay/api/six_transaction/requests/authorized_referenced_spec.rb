@@ -13,6 +13,7 @@ RSpec.describe SixSaferpay::SixTransaction::AuthorizeReferenced do
       terminal_id: subject.terminal_id,
       payment: subject.payment.to_h,
       transaction_reference: subject.transaction_reference.to_h,
+      authentication: subject.authentication.to_h,
       suppress_dcc: subject.suppress_dcc
     }
   }
