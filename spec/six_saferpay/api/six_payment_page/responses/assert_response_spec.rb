@@ -12,7 +12,8 @@ RSpec.describe SixSaferpay::SixPaymentPage::AssertResponse do
       payer: subject.payer.to_h,
       registration_result: subject.registration_result.to_h,
       liability: subject.liability.to_h,
-      dcc: subject.dcc.to_h
+      dcc: subject.dcc.to_h,
+      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h
     }
   }
 

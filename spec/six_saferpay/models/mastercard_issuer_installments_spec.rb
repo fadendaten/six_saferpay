@@ -8,6 +8,7 @@ RSpec.describe SixSaferpay::MastercardIssuerInstallments do
     {
       installment_plans: subject.installment_plans.to_h,
       custom_plan: subject.custom_plan.to_h,
+      chosen_plan: subject.chosen_plan.to_h,
       receipt_free_text: subject.receipt_free_text
     }
   }

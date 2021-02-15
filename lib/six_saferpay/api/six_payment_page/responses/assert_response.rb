@@ -8,7 +8,8 @@ module SixSaferpay
                     :payer,
                     :registration_result,
                     :liability,
-                    :dcc
+                    :dcc,
+                    :mastercard_issuer_installments
                    )
 
       def initialize(response_header:,
@@ -17,7 +18,8 @@ module SixSaferpay
                     payer: nil,
                     registration_result: nil,
                     liability: nil,
-                    dcc: nil
+                    dcc: nil,
+                    mastercard_issuer_installments: nil
                     )
         @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h)
         @transaction = SixSaferpay::Transaction.new(transaction.to_h)
@@ -26,6 +28,10 @@ module SixSaferpay
         @registration_result = SixSaferpay::RegistrationResult.new(registration_result.to_h) if registration_result
         @liability = SixSaferpay::Liability.new(liability.to_h) if liability
         @dcc = SixSaferpay::Dcc.new(dcc.to_h) if dcc
+        if mastercard_issuer_installments
+          @mastercard_issuer_installments = SixSaferpay::MastercardIssuerInstallments
+            .new(mastercard_issuer_installments.to_h)
+        end
       end
 
       def to_hash
@@ -37,6 +43,9 @@ module SixSaferpay
         hash.merge!(registration_result: @registration_result.to_h) if @registration_result
         hash.merge!(liability: @liability.to_h) if @liability
         hash.merge!(dcc: @dcc.to_h) if @dcc
+        if @mastercard_issuer_installments
+          hash.merge!(mastercard_issuer_installments: mastercard_issuer_installments.to_h)
+        end
         hash
       end
       alias_method :to_h, :to_hash

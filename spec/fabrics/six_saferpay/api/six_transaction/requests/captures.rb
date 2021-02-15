@@ -6,5 +6,6 @@ SpinningWheel.define do
     billpay { SpinningWheel.create('billpay') }
     pending_notification { SpinningWheel.create('pending_notification') }
     marketplace { SpinningWheel.create('marketplace') }
+    mastercard_issuer_installments { SpinningWheel.create('mastercard_issuer_installments') }
   end
 end
