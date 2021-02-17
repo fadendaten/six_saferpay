@@ -6,7 +6,8 @@ RSpec.describe SixSaferpay::CardForm do
 
   let(:hash) {
     {
-      holder_name: subject.holder_name
+      holder_name: subject.holder_name,
+      verification_code: subject.verification_code
     }
   }
 
