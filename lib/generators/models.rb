@@ -18,7 +18,7 @@ class Model < Thor::Group
   end
 
   def create_fabric_file
-    template('templates/model.erb', "lib/fabrics/models/#{name}s.rb")
+    template('templates/model.erb', "spec/fabrics/models/#{name}s.rb")
   end
 
 end
