@@ -12,6 +12,10 @@ Dir[File.join(gem_root, "lib", "six_saferpay", "**/*.rb")].sort.each do |file|
   require file
 end
 
+Dir[File.join(gem_root, "lib", "generators", "**/*.thor")].sort.each do |file|
+  require file
+end
+
 module SixSaferpay
 
   class Config
