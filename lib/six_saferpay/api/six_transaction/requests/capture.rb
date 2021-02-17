@@ -7,7 +7,8 @@ module SixSaferpay
                     :amount,
                     :billpay,
                     :pending_notification,
-                    :marketplace
+                    :marketplace,
+                    :mastercard_issuer_installments
                    )
 
 
@@ -16,7 +17,8 @@ module SixSaferpay
                      amount: nil,
                      billpay: nil,
                      pending_notification: nil,
-                     marketplace: nil
+                     marketplace: nil,
+                    mastercard_issuer_installments: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
@@ -24,6 +26,10 @@ module SixSaferpay
         @billpay = SixSaferpay::Billpay.new(billpay.to_h) if billpay
         @pending_notification = SixSaferpay::PendingNotification.new(pending_notification.to_h) if pending_notification
         @marketplace = SixSaferpay::Marketplace.new(marketplace.to_h) if marketplace
+        if mastercard_issuer_installments
+          @mastercard_issuer_installments = SixSaferpay::MastercardIssuerInstallments
+            .new(mastercard_issuer_installments.to_h)
+        end
       end
 
       def to_hash
@@ -34,6 +40,9 @@ module SixSaferpay
         hash.merge!(billpay: @billpay.to_h) if @billpay
         hash.merge!(pending_notification: @pending_notification.to_h) if @pending_notification
         hash.merge!(marketplace: @marketplace.to_h) if @marketplace
+        if @mastercard_issuer_installments
+          hash.merge!(mastercard_issuer_installments: mastercard_issuer_installments.to_h)
+        end
         hash
       end
       alias_method :to_h, :to_hash

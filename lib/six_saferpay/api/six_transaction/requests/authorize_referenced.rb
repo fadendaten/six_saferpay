@@ -6,6 +6,7 @@ module SixSaferpay
                     :terminal_id,
                     :payment,
                     :transaction_reference,
+                    :authentication,
                     :suppress_dcc
                    )
 
@@ -14,12 +15,14 @@ module SixSaferpay
                      terminal_id: nil,
                      payment:,
                      transaction_reference:,
+                     authentication: nil,
                      suppress_dcc:
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = terminal_id || SixSaferpay.config.terminal_id
         @payment = SixSaferpay::Payment.new(payment.to_h) if payment
         @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
+        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
         @suppress_dcc = suppress_dcc
       end
 
@@ -29,6 +32,7 @@ module SixSaferpay
         hash.merge!(terminal_id: @terminal_id) if @terminal_id
         hash.merge!(payment: @payment.to_h) if @payment
         hash.merge!(transaction_reference: @transaction_reference.to_h) if @transaction_reference
+        hash.merge!(authentication: @authentication.to_h) if @authentication
         hash.merge!(suppress_dcc: @suppress_dcc) if !@suppress_dcc.nil?
         hash
       end

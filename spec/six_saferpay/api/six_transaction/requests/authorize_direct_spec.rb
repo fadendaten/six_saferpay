@@ -14,6 +14,7 @@ RSpec.describe SixSaferpay::SixTransaction::AuthorizeDirect do
       terminal_id: subject.terminal_id,
       payment: subject.payment.to_h,
       payment_means: subject.payment_means.to_h,
+      authentication: subject.authentication.to_h,
       register_alias: subject.register_alias.to_h,
       payer: subject.payer.to_h
     }

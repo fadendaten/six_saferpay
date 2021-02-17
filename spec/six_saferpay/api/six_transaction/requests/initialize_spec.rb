@@ -13,6 +13,7 @@ RSpec.describe SixSaferpay::SixTransaction::Initialize do
       terminal_id: subject.terminal_id,
       payment: subject.payment.to_h,
       payment_means: subject.payment_means.to_h,
+      authentication: subject.authentication.to_h,
       payer: subject.payer.to_h,
       return_urls: subject.return_urls.to_h,
       styling: subject.styling.to_h,

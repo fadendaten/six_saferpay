@@ -14,7 +14,8 @@ RSpec.describe SixSaferpay::SixTransaction::Capture do
       amount: subject.amount.to_h,
       billpay: subject.billpay.to_h,
       pending_notification: subject.pending_notification.to_h,
-      marketplace: subject.marketplace.to_h
+      marketplace: subject.marketplace.to_h,
+      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h
     }
   }
 

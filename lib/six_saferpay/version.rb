@@ -1,3 +1,3 @@
 module SixSaferpay
-  VERSION = "2.3.1"
+  VERSION = "1.16.2.4.0"
 end

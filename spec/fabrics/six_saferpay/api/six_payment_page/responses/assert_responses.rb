@@ -7,5 +7,6 @@ SpinningWheel.define do
     registration_result { SpinningWheel.create('registration_result') }
     liability { SpinningWheel.create('liability') }
     dcc { SpinningWheel.create('dcc') }
+    mastercard_issuer_installments { SpinningWheel.create('mastercard_issuer_installments') }
   end
 end

@@ -23,16 +23,16 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'activesupport', '>= 5.0.0.0', '< 7'
+  spec.add_runtime_dependency 'activesupport', '~> 6.1', '>= 6.1.3'
 
-  spec.add_development_dependency 'bundler', '~> 2.0'
+  spec.add_development_dependency 'bundler', '~> 2.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'vcr', '~> 4.0', '>= 4.0.0'
-  spec.add_development_dependency 'webmock', '~> 3.5', '>= 3.5.1'
+  spec.add_development_dependency 'webmock', '~> 3.10', '>= 3.10'
   spec.add_development_dependency 'dotenv', '~> 2.7', '>= 2.7'
-  spec.add_development_dependency 'pry', '~> 0.12.0'
-  spec.add_development_dependency 'tty-prompt', '~> 0.18'
-  spec.add_development_dependency 'simplecov', '~> 0.16'
-  spec.add_development_dependency 'spinning_wheel', '~> 0.1'
+  spec.add_development_dependency 'pry', '~> 0.13'
+  spec.add_development_dependency 'tty-prompt', '~> 0.22'
+  spec.add_development_dependency 'simplecov', '~> 0.19'
+  spec.add_development_dependency 'spinning_wheel', '~> 0.2.2'
 end

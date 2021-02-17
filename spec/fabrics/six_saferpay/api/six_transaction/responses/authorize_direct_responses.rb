@@ -5,5 +5,6 @@ SpinningWheel.define do
     payment_means { SpinningWheel.create('response_payment_means') }
     payer { SpinningWheel.create('payer') }
     registration_result { SpinningWheel.create('registration_result') }
+    mastercard_issuer_installments { SpinningWheel.create('mastercard_issuer_installments') }
   end
 end

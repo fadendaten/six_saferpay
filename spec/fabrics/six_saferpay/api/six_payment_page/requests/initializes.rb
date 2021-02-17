@@ -6,6 +6,7 @@ SpinningWheel.define do
     payment { SpinningWheel.create('payment') }
     payment_methods { ["VISA", "MASTERCARD"] }
     payment_methods_options { SpinningWheel.create('payment_methods_options') }
+    authentication { SpinningWheel.create('authentication') }
     wallets { ["MASTERPASS"] }
     payer { SpinningWheel.create('payer') }
     register_alias { SpinningWheel.create('register_alias') }
