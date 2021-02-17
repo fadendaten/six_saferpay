@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'vcr', '~> 4.0', '>= 4.0.0'
   spec.add_development_dependency 'webmock', '~> 3.10', '>= 3.10'
   spec.add_development_dependency 'dotenv', '~> 2.7', '>= 2.7'
-  spec.add_development_dependency 'pry', '~> 0.13'
+  spec.add_development_dependency 'pry', '~> 0.14'
   spec.add_development_dependency 'tty-prompt', '~> 0.22'
   spec.add_development_dependency 'simplecov', '~> 0.19'
   spec.add_development_dependency 'spinning_wheel', '~> 0.2.2'
