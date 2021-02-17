@@ -1,4 +1,4 @@
-class Newgem < Thor::Group
+class Model < Thor::Group
   include Thor::Actions
 
   # Define arguments and options
@@ -9,13 +9,16 @@ class Newgem < Thor::Group
     File.dirname(__FILE__)
   end
 
-  def create_lib_file
-    template('templates/newgem.tt', "#{name}/lib/#{name}.rb")
+  def create_model_file
+    template('templates/model.erb', "lib/six_saferpay/models/#{name}.rb")
   end
 
   def create_test_file
-    test = options[:test_framework] == "rspec" ? :spec : :test
-    create_file "#{name}/#{test}/#{name}_#{test}.rb"
+    template('templates/spec.erb', "spec/six_saferpay/models/#{name}.rb")
+  end
+
+  def create_fabric_file
+    template('templates/model.erb', "lib/fabrics/models/#{name}s.rb")
   end
 
 end
