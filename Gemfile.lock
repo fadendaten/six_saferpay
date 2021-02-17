@@ -77,9 +77,9 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  ruby
-  java
   arm64-darwin-20
+  java
+  ruby
 
 DEPENDENCIES
   bundler (~> 2.1)
