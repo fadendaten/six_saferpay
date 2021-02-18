@@ -3,6 +3,7 @@ SpinningWheel.define do
     response_header { SpinningWheel.create('response_header') }
     token { '234uhfh78234hlasdfh8234e' }
     expiration { '2015-01-30T13:45:22.258+02:00' }
-    redirect_url { 'https://www.saferpay.com/VT2/api/...' }
+    redirect_required { false }
+    redirect { SpinningWheel.create('redirect') }
   end
 end
