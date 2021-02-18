@@ -35,4 +35,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'tty-prompt', '~> 0.22'
   spec.add_development_dependency 'simplecov', '~> 0.19'
   spec.add_development_dependency 'spinning_wheel', '~> 0.2.2'
+  spec.add_development_dependency 'thor', '~> 1.1.0'
 end
