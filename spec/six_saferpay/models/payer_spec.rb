@@ -6,6 +6,7 @@ RSpec.describe SixSaferpay::Payer do
 
   let(:hash) {
     {
+      id: subject.id,
       ip_address: subject.ip_address,
       ip_location: subject.ip_location,
       language_code: subject.language_code,

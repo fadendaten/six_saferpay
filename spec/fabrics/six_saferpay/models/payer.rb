@@ -1,5 +1,6 @@
 SpinningWheel.define do
   fabric name: 'payer', class_name: 'SixSaferpay::Payer' do
+    id { '11111' }
     ip_address { '111.111.111.111' }
     ip_location { 'NZ' }
     language_code { 'de' }
