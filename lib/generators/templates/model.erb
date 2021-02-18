@@ -1,0 +1,56 @@
+module SixSaferpay
+  class <%= name %>
+
+    attr_accessor(
+    <%- attributes.each do |attr| -%>
+      :<%= attr.name %>,
+    <%- end -%>
+    )
+
+    def initialize(
+<%- attributes.each_with_index do |attr, index| -%>
+      <%= "#{attr.name}:"-%>
+<%- unless attr.mandatory? -%>
+  <%- -%><%= ' nil' -%>
+<%- end -%>
+<%- unless attr == attributes.last -%>
+  <%- -%><%= ',' %>
+<%- end -%>
+<%- end %>
+      )
+<%- attributes.each_with_index do |attr, index| -%>
+    <%- if attr.string? -%>
+      <%= "@#{attr.name} = "-%><%= "#{attr.name}" %>
+    <%- else -%>
+      <%- %>
+      <%= "if #{attr.name}" %>
+        <%= "@#{attr.name} = "-%>
+        <%- -%><%= "SixSaferpay::#{attr.type}.new(#{attr.name}.to_h)" %>
+      <%= "end" %>
+    <%- end -%>
+<%- end -%>
+    end
+
+    def to_hash
+      hash = Hash.new
+<%- attributes.each do |attr| -%>
+  <%- if attr.string? -%>
+    <%- if attr.mandatory? -%>
+      <%= "if @#{attr.name}" %>
+        <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+      <%= "end" %>
+    <%- else -%>
+      <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+    <%- end -%>
+  <%- else -%>
+      <%= "if @#{attr.name}" %>
+        <%= "hash.merge!(#{attr.name}: @#{attr.name}.to_h)" %>
+      <%= "end" %>
+  <%- end -%>
+<%- end -%>
+      hash
+    end
+    alias_method :to_h, :to_hash
+
+  end
+end

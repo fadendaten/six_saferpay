@@ -1,5 +1,6 @@
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'
+require 'active_support/inflector'
 require 'securerandom'
 require 'json'
 require 'net/http'
@@ -9,6 +10,10 @@ gem_root = spec.gem_dir
 
 
 Dir[File.join(gem_root, "lib", "six_saferpay", "**/*.rb")].sort.each do |file|
+  require file
+end
+
+Dir[File.join(gem_root, "lib", "generators", "**/*.thor")].sort.each do |file|
   require file
 end
 
