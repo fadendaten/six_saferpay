@@ -1,5 +1,6 @@
 require 'active_support/core_ext/hash'
 require 'active_support/core_ext/string'
+require 'active_support/inflector'
 require 'securerandom'
 require 'json'
 require 'net/http'

@@ -1,11 +1,18 @@
 require 'spec_helper'
 
-RSpec.describe SixSaferpay::<%=name.capitalize %> do
+RSpec.describe SixSaferpay::<%= name %> do
 
-subject { SpinningWheel.create('<%=name%>') }
+subject { SpinningWheel.create('<%= file_name %>') }
 
   let(:hash) {
     {
+    <%- attributes.each do |attr| -%>
+      <%- if attr.string? -%>
+        <%= attr.name %>: subject.<%= attr.name %>,
+      <%- else -%>
+        <%= attr.name %>: subject.<%= attr.name %>.to_h,
+      <%- end -%>
+    <%- end -%>
     }
   }
 
