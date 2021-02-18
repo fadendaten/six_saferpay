@@ -9,5 +9,6 @@ SpinningWheel.define do
     check { SpinningWheel.create('check') }
     payment_methods { ["VISA", "MASTERCARD"] }
     card_form { SpinningWheel.create('card_form') }
+    payment_means { SpinningWheel.create('request_payment_means') }
   end
 end

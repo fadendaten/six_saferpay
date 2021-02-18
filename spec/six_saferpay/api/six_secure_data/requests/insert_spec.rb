@@ -17,7 +17,8 @@ RSpec.describe SixSaferpay::SixSecureData::Insert do
       language_code: subject.language_code,
       check: subject.check.to_h,
       payment_methods: subject.payment_methods,
-      card_form: subject.card_form.to_h
+      card_form: subject.card_form.to_h,
+      payment_means: subject.payment_means.to_h
     }
   }
 

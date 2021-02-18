@@ -9,7 +9,8 @@ RSpec.describe SixSaferpay::SixSecureData::InsertResponse do
       response_header: subject.response_header.to_h,
       token: subject.token,
       expiration: subject.expiration,
-      redirect_url: subject.redirect_url
+      redirect_required: subject.redirect_required,
+      redirect: subject.redirect.to_h
     }
   }
 
