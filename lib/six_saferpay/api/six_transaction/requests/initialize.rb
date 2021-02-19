@@ -14,7 +14,8 @@ module SixSaferpay
         :styling,
         :wallet,
         :payment_methods,
-        :card_form
+        :card_form,
+        :order
         )
 
 
@@ -29,7 +30,8 @@ module SixSaferpay
                      styling: nil,
                      wallet: nil,
                      payment_methods: nil,
-                     card_form: nil
+                     card_form: nil,
+                     order: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @config_set = config_set
@@ -43,6 +45,7 @@ module SixSaferpay
         @wallet = SixSaferpay::Wallet.new(wallet.to_h) if wallet
         @payment_methods = payment_methods
         @card_form = SixSaferpay::CardForm.new(card_form.to_h) if card_form
+        @order = SixSaferpay::Order.new(order.to_h) if order
       end
 
       def to_hash
@@ -59,6 +62,7 @@ module SixSaferpay
         hash.merge!(wallet: @wallet.to_h) if @wallet
         hash.merge!(payment_methods: @payment_methods) if @payment_methods
         hash.merge!(card_form: @card_form.to_h) if @card_form
+        hash.merge!(order: @order.to_h) if @order
         hash
       end
       alias_method :to_h, :to_hash

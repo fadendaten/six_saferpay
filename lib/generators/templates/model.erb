@@ -36,11 +36,11 @@ module SixSaferpay
 <%- attributes.each do |attr| -%>
   <%- if attr.string? -%>
     <%- if attr.mandatory? -%>
+      <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+    <%- else -%>
       <%= "if @#{attr.name}" %>
         <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
       <%= "end" %>
-    <%- else -%>
-      <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
     <%- end -%>
   <%- else -%>
       <%= "if @#{attr.name}" %>
