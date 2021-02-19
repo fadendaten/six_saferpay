@@ -5,5 +5,6 @@ SpinningWheel.define do
     config_set { 'name of your payment page config (case-insensitive)' }
     payer { SpinningWheel.create('payer') }
     billing_address_form { SpinningWheel.create('address_form') }
+    register_alias { SpinningWheel.create('register_alias') }
   end
 end

@@ -2,11 +2,9 @@ SpinningWheel.define do
   fabric name: '<%= file_name %>', class_name: 'SixSaferpay::<%= name %>' do
 <%- attributes.each do |attr| -%>
   <%- if attr.string? -%>
-  <%- if attr.mandatory? -%>
     <%= "#{attr.name} { ' ' }" %>
-  <%- else -%>
-    <%= "#{attr.name} { nil }" %>
-  <%- end -%>
+  <%- elsif attr.boolean? -%>
+    <%= "#{attr.name} { true }" %>
   <%- else -%>
     <%= "#{attr.name} { SpinningWheel.create('#{attr.name}') }" %>
   <%- end -%>

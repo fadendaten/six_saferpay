@@ -7,7 +7,7 @@ subject { SpinningWheel.create('<%= file_name %>') }
   let(:hash) {
     {
     <%- attributes.each do |attr| -%>
-      <%- if attr.string? -%>
+      <%- if attr.string? || attr.boolean? -%>
         <%= attr.name %>: subject.<%= attr.name %>,
       <%- else -%>
         <%= attr.name %>: subject.<%= attr.name %>.to_h,

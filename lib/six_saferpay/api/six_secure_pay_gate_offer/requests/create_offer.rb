@@ -6,14 +6,16 @@ module SixSaferpay
                     :expiration_date,
                     :config_set,
                     :payer,
-                    :billing_address_form
+                    :billing_address_form,
+                    :register_alias,
                    )
 
       def initialize(payment: ,
                      expiration_date: ,
                      config_set: nil,
                      payer: ,
-                     billing_address_form: nil
+                     billing_address_form: nil,
+                     register_alias: nil
                     )
 
         @payment = SixSaferpay::Payment.new(payment.to_h) if payment
@@ -22,6 +24,7 @@ module SixSaferpay
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
         @billing_address_form =
           SixSaferpay::BillingAddressForm.new(billing_address_form) if billing_address_form
+        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
       end
 
       def to_hash
@@ -31,6 +34,7 @@ module SixSaferpay
         hash.merge!(config_set: @config_set) if @config_set
         hash.merge!(payer: @payer.to_h) if @payer
         hash.merge!(billing_address_form: @billing_address_form.to_h) if @billing_address_form
+        hash.merge!(register_alias: @register_alias.to_h) if @register_alias
         hash
       end
       alias_method :to_h, :to_hash

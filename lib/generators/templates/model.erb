@@ -19,7 +19,7 @@ module SixSaferpay
 <%- end %>
       )
 <%- attributes.each_with_index do |attr, index| -%>
-    <%- if attr.string? -%>
+    <%- if attr.string? || attr.boolean? -%>
       <%= "@#{attr.name} = "-%><%= "#{attr.name}" %>
     <%- else -%>
       <%- %>
@@ -36,11 +36,19 @@ module SixSaferpay
 <%- attributes.each do |attr| -%>
   <%- if attr.string? -%>
     <%- if attr.mandatory? -%>
+      <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+    <%- else -%>
       <%= "if @#{attr.name}" %>
         <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
       <%= "end" %>
-    <%- else -%>
+    <%- end -%>
+  <%- elsif attr.boolean? -%>
+    <%- if attr.mandatory? -%>
       <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+    <%- else -%>
+      <%= "if !@#{attr.name}.nil?" %>
+        <%= "hash.merge!(#{attr.name}: @#{attr.name})" %>
+      <%= "end" %>
     <%- end -%>
   <%- else -%>
       <%= "if @#{attr.name}" %>

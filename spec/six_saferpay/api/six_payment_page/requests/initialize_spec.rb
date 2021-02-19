@@ -25,7 +25,9 @@ RSpec.describe SixSaferpay::SixPaymentPage::Initialize do
       billing_address_form: subject.billing_address_form.to_h,
       delivery_address_form: subject.delivery_address_form.to_h,
       card_form: subject.card_form.to_h,
-      condition: subject.condition
+      condition: subject.condition,
+      order: subject.order.to_h,
+      risk_factors: subject.risk_factors.to_h,
     }
   }
 

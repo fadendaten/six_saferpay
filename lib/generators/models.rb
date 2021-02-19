@@ -75,7 +75,11 @@ module SixSaferpay
       end
 
       def string?
-        @type == "String"
+        @type.downcase == "string"
+      end
+
+      def boolean?
+        @type.downcase == "boolean"
       end
 
       def to_s

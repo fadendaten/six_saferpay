@@ -1,5 +1,5 @@
 module SixSaferpay
   module API
-    VERSION = '1.17'
+    VERSION = '1.18'
   end
 end

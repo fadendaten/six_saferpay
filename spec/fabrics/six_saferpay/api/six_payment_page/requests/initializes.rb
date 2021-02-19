@@ -17,5 +17,7 @@ SpinningWheel.define do
     delivery_address_form { SpinningWheel.create('address_form') }
     card_form { SpinningWheel.create('card_form') }
     condition { 'IF_ALLOWED_BY_SCHEME' }
+    order { SpinningWheel.create('order') }
+    risk_factors { SpinningWheel.create('risk_factors') }
   end
 end

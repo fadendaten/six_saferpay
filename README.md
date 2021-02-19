@@ -6,7 +6,7 @@
 
 ## Current API Version
 
-This gem is compatible with the SIX API version: `1.17`
+This gem is compatible with the SIX API version: `1.18`
 
 ## Installation
 
