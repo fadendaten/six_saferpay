@@ -13,7 +13,8 @@ RSpec.describe SixSaferpay::SixTransaction::AuthorizeResponse do
       registration_result: subject.registration_result.to_h,
       liability: subject.liability.to_h,
       dcc: subject.dcc.to_h,
-      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h
+      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h,
+      fraud_prevention: subject.fraud_prevention.to_h,
     }
   }
 
