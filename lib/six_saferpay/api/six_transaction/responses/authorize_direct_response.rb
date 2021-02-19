@@ -7,7 +7,8 @@ module SixSaferpay
                     :payment_means,
                     :payer,
                     :registration_result,
-                    :mastercard_issuer_installments
+                    :mastercard_issuer_installments,
+                    :fraud_prevention
                    )
 
 
@@ -16,7 +17,8 @@ module SixSaferpay
                      payment_means:,
                      payer: nil,
                      registration_result: nil,
-                     mastercard_issuer_installments: nil
+                     mastercard_issuer_installments: nil,
+                     fraud_prevention: nil
                     )
         @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
         @transaction = SixSaferpay::Transaction.new(transaction.to_h) if transaction
@@ -26,6 +28,9 @@ module SixSaferpay
         if mastercard_issuer_installments
           @mastercard_issuer_installments = SixSaferpay::MastercardIssuerInstallments
             .new(mastercard_issuer_installments.to_h)
+        end
+        if fraud_prevention
+          @fraud_prevention = SixSaferpay::FraudPrevention.new(fraud_prevention.to_h)
         end
       end
 
@@ -38,6 +43,9 @@ module SixSaferpay
         hash.merge!(registration_result: @registration_result.to_h) if @registration_result
         if @mastercard_issuer_installments
           hash.merge!(mastercard_issuer_installments: mastercard_issuer_installments.to_h)
+        end
+        if @fraud_prevention
+          hash.merge!(fraud_prevention: fraud_prevention.to_h)
         end
         hash
       end

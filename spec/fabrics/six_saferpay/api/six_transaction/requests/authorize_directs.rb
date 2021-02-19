@@ -7,5 +7,7 @@ SpinningWheel.define do
     authentication { SpinningWheel.create('authentication') }
     register_alias { SpinningWheel.create('register_alias') }
     payer { SpinningWheel.create('payer') }
+    order { SpinningWheel.create('order') }
+    risk_factors { SpinningWheel.create('risk_factors') }
   end
 end
