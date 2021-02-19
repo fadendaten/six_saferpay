@@ -18,5 +18,6 @@ SpinningWheel.define do
     card_form { SpinningWheel.create('card_form') }
     condition { 'IF_ALLOWED_BY_SCHEME' }
     order { SpinningWheel.create('order') }
+    risk_factors { SpinningWheel.create('risk_factors') }
   end
 end

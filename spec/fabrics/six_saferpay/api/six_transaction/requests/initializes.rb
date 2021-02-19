@@ -12,5 +12,6 @@ SpinningWheel.define do
     payment_methods { ["VISA", "MASTERCARD"] }
     card_form { SpinningWheel.create('card_form') }
     order { SpinningWheel.create('order') }
+    risk_factors { SpinningWheel.create('risk_factors') }
   end
 end

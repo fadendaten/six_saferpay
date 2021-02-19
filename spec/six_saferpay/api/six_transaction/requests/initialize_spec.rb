@@ -20,7 +20,8 @@ RSpec.describe SixSaferpay::SixTransaction::Initialize do
       wallet: subject.wallet.to_h,
       payment_methods: subject.payment_methods,
       card_form: subject.card_form.to_h,
-      order: subject.order.to_h
+      order: subject.order.to_h,
+      risk_factors: subject.risk_factors.to_h,
     }
   }
 

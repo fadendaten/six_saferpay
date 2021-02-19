@@ -20,7 +20,8 @@ module SixSaferpay
         :delivery_address_form,
         :card_form,
         :condition,
-        :order
+        :order,
+        :risk_factors
       )
 
       def initialize(request_header: nil,
@@ -40,7 +41,8 @@ module SixSaferpay
                      delivery_address_form: nil,
                      card_form: nil,
                      condition: nil,
-                     order: nil
+                     order: nil,
+                     risk_factors: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @config_set = config_set
@@ -60,6 +62,7 @@ module SixSaferpay
         @card_form = SixSaferpay::CardForm.new(card_form.to_h) if card_form
         @condition = condition
         @order = SixSaferpay::Order.new(order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
       end
 
       def to_hash
@@ -82,6 +85,7 @@ module SixSaferpay
         hash.merge!(card_form: @card_form.to_h) if @card_form
         hash.merge!(condition: @condition) if @condition
         hash.merge!(order: @order.to_h) if @order
+        hash.merge!(risk_factors: @risk_factors.to_h) if @risk_factors
         hash
       end
       alias_method :to_h, :to_hash
