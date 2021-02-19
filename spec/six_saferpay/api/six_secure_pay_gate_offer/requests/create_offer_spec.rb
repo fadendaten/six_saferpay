@@ -17,7 +17,8 @@ RSpec.describe SixSaferpay::SixSecurePayGateOffer::CreateOffer do
       expiration_date: subject.expiration_date,
       config_set: subject.config_set,
       payer: subject.payer.to_h,
-      billing_address_form: subject.billing_address_form.to_h
+      billing_address_form: subject.billing_address_form.to_h,
+      register_alias: subject.register_alias.to_h,
     }
   }
 
