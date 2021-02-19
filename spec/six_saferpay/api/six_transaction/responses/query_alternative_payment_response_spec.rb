@@ -10,7 +10,8 @@ RSpec.describe SixSaferpay::SixTransaction::QueryAlternativePaymentResponse do
       transaction: subject.transaction.to_h,
       payment_means: subject.payment_means.to_h,
       payer: subject.payer.to_h,
-      liability: subject.liability.to_h
+      liability: subject.liability.to_h,
+      fraud_prevention: subject.fraud_prevention.to_h
     }
   }
 

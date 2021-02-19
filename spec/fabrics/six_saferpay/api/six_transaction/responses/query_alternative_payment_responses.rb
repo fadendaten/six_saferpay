@@ -5,5 +5,6 @@ SpinningWheel.define do
     payment_means { SpinningWheel.create('response_payment_means') }
     payer { SpinningWheel.create('payer') }
     liability { SpinningWheel.create('liability') }
+    fraud_prevention { SpinningWheel.create('fraud_prevention') }
   end
 end

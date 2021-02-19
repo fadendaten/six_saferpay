@@ -11,7 +11,8 @@ RSpec.describe SixSaferpay::SixTransaction::AuthorizeDirectResponse do
       payment_means: subject.payment_means.to_h,
       payer: subject.payer.to_h,
       registration_result: subject.registration_result.to_h,
-      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h
+      mastercard_issuer_installments: subject.mastercard_issuer_installments.to_h,
+      fraud_prevention: subject.fraud_prevention.to_h
     }
   }
 
