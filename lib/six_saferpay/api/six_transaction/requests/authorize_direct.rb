@@ -8,7 +8,9 @@ module SixSaferpay
                     :payment_means,
                     :authentication,
                     :register_alias,
-                    :payer
+                    :payer,
+                    :order,
+                    :risk_factors
                    )
 
 
@@ -18,7 +20,9 @@ module SixSaferpay
                      payment_means:,
                      authentication: nil,
                      register_alias: nil,
-                     payer: nil
+                     payer: nil,
+                     order: nil,
+                     risk_factors: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = SixSaferpay.config.terminal_id || terminal_id
@@ -27,6 +31,8 @@ module SixSaferpay
         @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
         @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
+        @order = SixSaferpay::Order.new(order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
       end
 
       def to_hash
@@ -38,6 +44,8 @@ module SixSaferpay
         hash.merge!(authentication: @authentication.to_h) if @authentication
         hash.merge!(register_alias: @register_alias.to_h) if @register_alias
         hash.merge!(payer: @payer.to_h) if @payer
+        hash.merge!(order: @order.to_h) if @order
+        hash.merge!(risk_factors: @risk_factors.to_h) if @risk_factors
         hash
       end
       alias_method :to_h, :to_hash
