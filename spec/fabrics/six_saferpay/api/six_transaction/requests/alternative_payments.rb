@@ -7,5 +7,7 @@ SpinningWheel.define do
     payment_method_options { SpinningWheel.create('payment_method_options') }
     payer { SpinningWheel.create('payer') }
     notification { SpinningWheel.create('notification') }
+    order { SpinningWheel.create('order') }
+    risk_factors { SpinningWheel.create('risk_factors') }
   end
 end

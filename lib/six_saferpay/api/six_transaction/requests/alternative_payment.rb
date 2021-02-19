@@ -8,7 +8,9 @@ module SixSaferpay
                     :payment_method,
                     :payment_method_options,
                     :payer,
-                    :notification
+                    :notification,
+                    :order,
+                    :risk_factors,
                    )
 
 
@@ -19,7 +21,10 @@ module SixSaferpay
                      payment_method:,
                      payment_method_options: nil,
                      payer: nil,
-                     notification: )
+                     notification:,
+                     order: nil,
+                     risk_factors: nil
+                    )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = terminal_id
         @payment = SixSaferpay::Payment.new(payment.to_h)
@@ -27,6 +32,8 @@ module SixSaferpay
         @payment_method_options = SixSaferpay::PaymentMethodOptions.new(payment_method_options.to_h) if payment_method_options
         @payer = SixSaferpay::Payer.new(payer.to_h) if payer
         @notification = SixSaferpay::Notification.new(notification.to_h)
+        @order = SixSaferpay::Order.new(order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
       end
 
       def to_hash
@@ -38,6 +45,8 @@ module SixSaferpay
         hash.merge!(payment_method_options: @payment_method_options.to_h) if @payment_method_options
         hash.merge!(payer: @payer.to_h) if @payer
         hash.merge!(notification: @notification.to_h)
+        hash.merge!(order: @order.to_h) if @order
+        hash.merge!(risk_factors: @risk_factors.to_h) if @risk_factors
         hash
       end
       alias_method :to_h, :to_hash

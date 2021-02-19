@@ -15,7 +15,9 @@ RSpec.describe SixSaferpay::SixTransaction::AlternativePayment do
       payment_method: subject.payment_method,
       payment_method_options: subject.payment_method_options.to_h,
       payer: subject.payer.to_h,
-      notification: subject.notification.to_h
+      notification: subject.notification.to_h,
+      order: subject.order.to_h,
+      risk_factors: subject.risk_factors.to_h
     }
   }
 
