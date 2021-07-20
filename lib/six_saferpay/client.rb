@@ -7,13 +7,17 @@ module SixSaferpay
     end
 
     def self.post(object)
-      new(object).post
+      new(object).request(method: :post)
     end
 
-    def post
+    def self.get(object)
+      new(object).request(method: :get)
+    end
+
+    def request(method:)
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
-      @response = https.request(request)
+      @response = https.request(call("#{method}_request"))
       hash = @response.body
       hash = JSON.parse(hash, symbolize_names: true)
       hash = transform_response_hash(hash)
@@ -24,6 +28,11 @@ module SixSaferpay
       end
     end
 
+    def get
+      https = Net::HTTP.new(uri.host, uri.port)
+      https.use_ssl = true
+    end
+
     protected
 
     def header
@@ -32,7 +41,7 @@ module SixSaferpay
 
     private
 
-    def request
+    def post_request
       request = Net::HTTP::Post.new(uri.path, header)
       hash = @object.to_h
       hash = transform_request_hash(hash)
@@ -40,6 +49,10 @@ module SixSaferpay
       request.body = hash
       request.basic_auth(username, password)
       @request = request
+    end
+
+    def get_request
+
     end
 
     def uri

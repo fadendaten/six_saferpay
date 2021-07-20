@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    six_saferpay (2.8.0)
+    six_saferpay (2.8.2)
       activesupport (~> 5.2)
 
 GEM
@@ -104,4 +104,4 @@ DEPENDENCIES
   webmock (~> 3.10, >= 3.10)
 
 BUNDLED WITH
-   2.2.8
+   2.2.15
