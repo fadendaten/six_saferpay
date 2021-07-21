@@ -14,7 +14,7 @@ module SixSaferpay
                      amount: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @token = token
-        @amount = SixSaferpay::Amount.new(amount.to_h) if amount
+        @amount = SixSaferpay::Amount.new(**amount.to_h) if amount
       end
 
       def to_hash

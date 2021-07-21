@@ -13,7 +13,7 @@ module SixSaferpay
                      order_id: nil,
                      date: nil
                     )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
         @transaction_id = transaction_id
         @order_id = order_id
         @date = date

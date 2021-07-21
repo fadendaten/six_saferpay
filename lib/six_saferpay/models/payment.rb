@@ -18,14 +18,14 @@ module SixSaferpay
                    options: nil,
                    recurring: nil,
                    installment: nil)
-      @amount = SixSaferpay::Amount.new(amount.to_h) if amount
+      @amount = SixSaferpay::Amount.new(**amount.to_h) if amount
       @order_id = order_id
       @description = description
       @payer_note = payer_note
       @mandate_id = mandate_id
-      @options = SixSaferpay::Options.new(options.to_h) if options
-      @recurring = SixSaferpay::Recurring.new(recurring.to_h) if recurring
-      @installment = SixSaferpay::Installment.new(installment.to_h) if installment
+      @options = SixSaferpay::Options.new(**options.to_h) if options
+      @recurring = SixSaferpay::Recurring.new(**recurring.to_h) if recurring
+      @installment = SixSaferpay::Installment.new(**installment.to_h) if installment
     end
 
     def to_hash

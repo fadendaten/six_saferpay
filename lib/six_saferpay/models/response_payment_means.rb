@@ -16,12 +16,12 @@ module SixSaferpay
                    bank_account: nil,
                    twint: nil
                   )
-      @brand = SixSaferpay::Brand.new(brand.to_h) if brand
+      @brand = SixSaferpay::Brand.new(**brand.to_h) if brand
       @display_text = display_text
       @wallet = wallet
-      @card = SixSaferpay::ResponseCard.new(card.to_h) if card
-      @bank_account = SixSaferpay::BankAccount.new(bank_account.to_h) if bank_account
-      @twint = SixSaferpay::Twint.new(twint.to_h) if twint
+      @card = SixSaferpay::ResponseCard.new(**card.to_h) if card
+      @bank_account = SixSaferpay::BankAccount.new(**bank_account.to_h) if bank_account
+      @twint = SixSaferpay::Twint.new(**twint.to_h) if twint
     end
 
     def to_hash

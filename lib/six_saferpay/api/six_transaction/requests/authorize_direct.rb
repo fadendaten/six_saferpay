@@ -26,13 +26,13 @@ module SixSaferpay
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = SixSaferpay.config.terminal_id || terminal_id
-        @payment = SixSaferpay::Payment.new(payment.to_h) if payment
-        @payment_means = SixSaferpay::RequestPaymentMeans.new(payment_means.to_h) if payment_means
-        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @order = SixSaferpay::Order.new(order.to_h) if order
-        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
+        @payment = SixSaferpay::Payment.new(**payment.to_h) if payment
+        @payment_means = SixSaferpay::RequestPaymentMeans.new(**payment_means.to_h) if payment_means
+        @authentication = SixSaferpay::Authentication.new(**authentication.to_h) if authentication
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
+        @order = SixSaferpay::Order.new(**order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(**risk_factors.to_h) if risk_factors
       end
 
       def to_hash

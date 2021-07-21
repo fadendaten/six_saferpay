@@ -14,9 +14,9 @@ module SixSaferpay
                      check: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
-        @payment_means = SixSaferpay::RequestPaymentMeans.new(payment_means.to_h) if payment_means
-        @check = SixSaferpay::Check.new(check.to_h) if check
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
+        @payment_means = SixSaferpay::RequestPaymentMeans.new(**payment_means.to_h) if payment_means
+        @check = SixSaferpay::Check.new(**check.to_h) if check
       end
 
       def to_hash

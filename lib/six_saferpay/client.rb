@@ -22,9 +22,9 @@ module SixSaferpay
       hash = JSON.parse(hash, symbolize_names: true)
       hash = transform_response_hash(hash)
       if @response.code == '200'
-        @object.response_class.new(hash)
+        @object.response_class.new(**hash)
       else
-        raise SixSaferpay::Error.new(hash)
+        raise SixSaferpay::Error.new(**hash)
       end
     end
 

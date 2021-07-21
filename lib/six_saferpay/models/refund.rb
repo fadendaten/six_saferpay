@@ -1,5 +1,5 @@
 module SixSaferpay
-  class Refund 
+  class Refund
 
     attr_accessor(:amount,
                   :order_id,
@@ -9,7 +9,7 @@ module SixSaferpay
     def initialize(amount:,
                    order_id: nil,
                    description: nil)
-      @amount = SixSaferpay::Amount.new(amount.to_h) if amount
+      @amount = SixSaferpay::Amount.new(**amount.to_h) if amount
       @order_id = order_id
       @description = description
     end

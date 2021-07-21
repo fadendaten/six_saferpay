@@ -24,18 +24,18 @@ module SixSaferpay
                      mastercard_issuer_installments: nil,
                      fraud_prevention: nil
                     )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @transaction = SixSaferpay::Transaction.new(transaction.to_h) if transaction
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h) if payment_means
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @registration_result = SixSaferpay::RegistrationResult.new(registration_result.to_h) if registration_result
-        @liability = SixSaferpay::Liability.new(liability.to_h) if liability
-        @dcc = SixSaferpay::Dcc.new(dcc.to_h) if dcc
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @transaction = SixSaferpay::Transaction.new(**transaction.to_h) if transaction
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h) if payment_means
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
+        @registration_result = SixSaferpay::RegistrationResult.new(**registration_result.to_h) if registration_result
+        @liability = SixSaferpay::Liability.new(**liability.to_h) if liability
+        @dcc = SixSaferpay::Dcc.new(**dcc.to_h) if dcc
         if mastercard_issuer_installments
           @mastercard_issuer_installments = SixSaferpay::MastercardIssuerInstallments
-            .new(mastercard_issuer_installments.to_h)
+            .new(**mastercard_issuer_installments.to_h)
         end
-        @fraud_prevention = SixSaferpay::FraudPrevention.new(fraud_prevention.to_h) if fraud_prevention
+        @fraud_prevention = SixSaferpay::FraudPrevention.new(**fraud_prevention.to_h) if fraud_prevention
       end
 
       def to_hash

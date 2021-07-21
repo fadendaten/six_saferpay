@@ -4,8 +4,8 @@ module SixSaferpay
     attr_accessor(:alipay, :ideal)
 
     def initialize(alipay: nil, ideal: nil)
-      @alipay = SixSaferpay::Alipay.new(alipay.to_h) if alipay
-      @ideal = SixSaferpay::Ideal.new(ideal.to_h) if ideal
+      @alipay = SixSaferpay::Alipay.new(**alipay.to_h) if alipay
+      @ideal = SixSaferpay::Ideal.new(**ideal.to_h) if ideal
     end
 
     def to_hash

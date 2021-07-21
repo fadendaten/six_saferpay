@@ -26,15 +26,15 @@ module SixSaferpay
                      payment_means: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
         @type = type
-        @return_urls = SixSaferpay::ReturnUrls.new(return_urls.to_h) if return_urls
-        @styling = SixSaferpay::Styling.new(styling.to_h) if styling
+        @return_urls = SixSaferpay::ReturnUrls.new(**return_urls.to_h) if return_urls
+        @styling = SixSaferpay::Styling.new(**styling.to_h) if styling
         @language_code = language_code
-        @check = SixSaferpay::Check.new(check.to_h) if check
+        @check = SixSaferpay::Check.new(**check.to_h) if check
         @payment_methods = payment_methods
-        @card_form = SixSaferpay::CardForm.new(card_form.to_h) if card_form
-        @payment_means = SixSaferpay::RequestPaymentMeans.new(payment_means.to_h) if payment_means
+        @card_form = SixSaferpay::CardForm.new(**card_form.to_h) if card_form
+        @payment_means = SixSaferpay::RequestPaymentMeans.new(**payment_means.to_h) if payment_means
       end
 
       def to_hash

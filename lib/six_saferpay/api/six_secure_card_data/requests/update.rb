@@ -12,8 +12,8 @@ module SixSaferpay
                      update_payment_means: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @update_alias = SixSaferpay::UpdateAlias.new(update_alias.to_h) if update_alias
-        @update_payment_means = SixSaferpay::UpdatePaymentMeans.new(update_payment_means.to_h) if update_payment_means
+        @update_alias = SixSaferpay::UpdateAlias.new(**update_alias.to_h) if update_alias
+        @update_payment_means = SixSaferpay::UpdatePaymentMeans.new(**update_payment_means.to_h) if update_payment_means
       end
 
       def to_hash

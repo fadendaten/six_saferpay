@@ -47,22 +47,22 @@ module SixSaferpay
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @config_set = config_set
         @terminal_id = terminal_id || SixSaferpay.config.terminal_id
-        @payment = SixSaferpay::Payment.new(payment.to_h) if payment
+        @payment = SixSaferpay::Payment.new(**payment.to_h) if payment
         @payment_methods = payment_methods
-        @payment_methods_options = SixSaferpay::PaymentMethodsOptions.new(payment_methods_options.to_h) if payment_methods_options
-        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
+        @payment_methods_options = SixSaferpay::PaymentMethodsOptions.new(**payment_methods_options.to_h) if payment_methods_options
+        @authentication = SixSaferpay::Authentication.new(**authentication.to_h) if authentication
         @wallets = wallets
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
         @return_urls = return_urls || SixSaferpay::ReturnUrls.new()
-        @notification = SixSaferpay::Notification.new(notification.to_h) if notification
-        @styling = SixSaferpay::Styling.new(styling.to_h) if styling
-        @billing_address_form = SixSaferpay::BillingAddressForm.new(billing_address_form.to_h) if billing_address_form
-        @delivery_address_form = SixSaferpay::DeliveryAddressForm.new(delivery_address_form.to_h) if delivery_address_form
-        @card_form = SixSaferpay::CardForm.new(card_form.to_h) if card_form
+        @notification = SixSaferpay::Notification.new(**notification.to_h) if notification
+        @styling = SixSaferpay::Styling.new(**styling.to_h) if styling
+        @billing_address_form = SixSaferpay::BillingAddressForm.new(**billing_address_form.to_h) if billing_address_form
+        @delivery_address_form = SixSaferpay::DeliveryAddressForm.new(**delivery_address_form.to_h) if delivery_address_form
+        @card_form = SixSaferpay::CardForm.new(**card_form.to_h) if card_form
         @condition = condition
-        @order = SixSaferpay::Order.new(order.to_h) if order
-        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
+        @order = SixSaferpay::Order.new(**order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(**risk_factors.to_h) if risk_factors
       end
 
       def to_hash

@@ -4,7 +4,7 @@ module SixSaferpay
     attr_accessor(:bancontact)
 
     def initialize(bancontact: nil)
-      @bancontact = SixSaferpay::Bancontact.new(bancontact.to_h) if bancontact
+      @bancontact = SixSaferpay::Bancontact.new(**bancontact.to_h) if bancontact
     end
 
     def to_hash

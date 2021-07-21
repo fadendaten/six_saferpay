@@ -14,10 +14,10 @@ module SixSaferpay
                     token:,
                     expiration:,
                     processing_data: nil)
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
         @token = token
         @expiration = expiration
-        @processing_data = SixSaferpay::ProcessingData.new(@processing_data.to_h) if processing_data
+        @processing_data = SixSaferpay::ProcessingData.new(**@processing_data.to_h) if processing_data
       end
 
       def to_hash

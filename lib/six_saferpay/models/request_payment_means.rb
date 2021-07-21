@@ -12,10 +12,10 @@ module SixSaferpay
                    fd_alias: nil,
                    saferpay_fields: nil
                   )
-      @card = SixSaferpay::RequestCard.new(card.to_h) if card
-      @bank_account = SixSaferpay::BankAccount.new(bank_account.to_h) if bank_account
-      @fd_alias = SixSaferpay::PaymentMeansAlias.new(fd_alias.to_h) if fd_alias
-      @saferpay_fields = SixSaferpay::SaferpayFields.new(saferpay_fields.to_h) if saferpay_fields
+      @card = SixSaferpay::RequestCard.new(**card.to_h) if card
+      @bank_account = SixSaferpay::BankAccount.new(**bank_account.to_h) if bank_account
+      @fd_alias = SixSaferpay::PaymentMeansAlias.new(**fd_alias.to_h) if fd_alias
+      @saferpay_fields = SixSaferpay::SaferpayFields.new(**saferpay_fields.to_h) if saferpay_fields
     end
 
     def to_hash

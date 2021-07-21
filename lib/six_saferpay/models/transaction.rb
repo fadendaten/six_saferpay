@@ -36,14 +36,14 @@ module SixSaferpay
       @id = id
       @capture_id = capture_id
       @date = date
-      @amount = SixSaferpay::Amount.new(amount)
+      @amount = SixSaferpay::Amount.new(**amount.to_h)
       @order_id = order_id
       @acquirer_name = acquirer_name
       @acquirer_reference = acquirer_reference
       @six_transaction_reference = six_transaction_reference
       @approval_code = approval_code
-      @direct_debit = SixSaferpay::DirectDebit.new(direct_debit) if direct_debit 
-      @invoice = SixSaferpay::Invoice.new(invoice) if invoice
+      @direct_debit = SixSaferpay::DirectDebit.new(**direct_debit.to_h) if direct_debit
+      @invoice = SixSaferpay::Invoice.new(**invoice.to_h) if invoice
     end
 
     def to_hash

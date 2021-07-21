@@ -4,7 +4,7 @@ module SixSaferpay
     attr_accessor(:card)
 
     def initialize(card: nil)
-      @card = SixSaferpay::AliasCard.new(card.to_h) if card
+      @card = SixSaferpay::AliasCard.new(**card.to_h) if card
     end
 
     def to_hash
