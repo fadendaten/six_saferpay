@@ -10,7 +10,7 @@ module SixSaferpay
       )
 
       if items
-        @items = SixSaferpay::Items.new(items.to_h)
+        @items = SixSaferpay::Items.new(**items.to_h)
       end
     end
 

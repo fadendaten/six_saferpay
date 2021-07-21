@@ -9,11 +9,11 @@ module SixSaferpay
 
       def initialize(response_header:,
                      transaction:,
-                     payment_means: 
+                     payment_means:
                     )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @transaction = SixSaferpay::Transaction.new(transaction.to_h) if transaction
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h) if payment_means
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @transaction = SixSaferpay::Transaction.new(**transaction.to_h) if transaction
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h) if payment_means
       end
 
       def to_hash

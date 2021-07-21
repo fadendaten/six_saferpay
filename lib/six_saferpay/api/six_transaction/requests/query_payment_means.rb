@@ -11,7 +11,7 @@ module SixSaferpay
                      return_urls: nil)
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @token = token
-        @return_urls = SixSaferpay::ReturnUrls.new(return_urls.to_h) if return_urls
+        @return_urls = SixSaferpay::ReturnUrls.new(**return_urls.to_h) if return_urls
       end
 
       def to_hash

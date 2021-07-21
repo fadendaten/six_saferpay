@@ -10,7 +10,7 @@ module SixSaferpay
       def initialize(request_header: nil,
                      capture_reference: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @capture_reference = SixSaferpay::CaptureReference.new(capture_reference.to_h) if capture_reference
+        @capture_reference = SixSaferpay::CaptureReference.new(**capture_reference.to_h) if capture_reference
       end
 
       def to_hash

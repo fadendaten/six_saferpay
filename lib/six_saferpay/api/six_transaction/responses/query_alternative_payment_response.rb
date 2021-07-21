@@ -19,13 +19,13 @@ module SixSaferpay
                     )
 
 
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @transaction = SixSaferpay::Transaction.new(transaction.to_h)
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h)
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @liability = SixSaferpay::Liability.new(liability.to_h) if liability
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @transaction = SixSaferpay::Transaction.new(**transaction.to_h)
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h)
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
+        @liability = SixSaferpay::Liability.new(**liability.to_h) if liability
         if fraud_prevention
-          @fraud_prevention = SixSaferpay::FraudPrevention.new(fraud_prevention.to_h)
+          @fraud_prevention = SixSaferpay::FraudPrevention.new(**fraud_prevention.to_h)
         end
       end
 

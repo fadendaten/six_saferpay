@@ -14,8 +14,8 @@ module SixSaferpay
                   )
       @liability_shift = liability_shift
       @liable_entity = liable_entity
-      @three_ds = SixSaferpay::ThreeDs.new(three_ds.to_h) if three_ds
-      @fraud_free = SixSaferpay::FraudFree.new(fraud_free.to_h) if fraud_free
+      @three_ds = SixSaferpay::ThreeDs.new(**three_ds.to_h) if three_ds
+      @fraud_free = SixSaferpay::FraudFree.new(**fraud_free.to_h) if fraud_free
     end
 
     def to_hash

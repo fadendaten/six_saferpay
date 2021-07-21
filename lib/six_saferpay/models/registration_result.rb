@@ -14,11 +14,11 @@ module SixSaferpay
                    authentication_result: nil)
 
       @success = success
-      @fd_alias = SixSaferpay::RegistrationAlias.new(fd_alias.to_h) if fd_alias
-      @error = SixSaferpay::RegistrationError.new(error.to_h) if error
+      @fd_alias = SixSaferpay::RegistrationAlias.new(**fd_alias.to_h) if fd_alias
+      @error = SixSaferpay::RegistrationError.new(**error.to_h) if error
       if authentication_result
         @authentication_result = SixSaferpay::AuthenticationResult
-          .new(authentication_result.to_h)
+          .new(**authentication_result.to_h)
       end
     end
 

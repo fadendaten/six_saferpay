@@ -19,11 +19,11 @@ module SixSaferpay
                      marketplace: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
-        @amount = SixSaferpay::Amount.new(amount.to_h) if amount
+        @transaction_reference = SixSaferpay::TransactionReference.new(**transaction_reference.to_h) if transaction_reference
+        @amount = SixSaferpay::Amount.new(**amount.to_h) if amount
         @type = type
         @order_part_id = order_part_id
-        @marketplace = SixSaferpay::Marketplace.new(marketplace.to_h) if marketplace
+        @marketplace = SixSaferpay::Marketplace.new(**marketplace.to_h) if marketplace
       end
 
       def to_hash

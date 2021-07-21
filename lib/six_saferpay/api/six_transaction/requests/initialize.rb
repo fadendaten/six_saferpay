@@ -38,17 +38,17 @@ module SixSaferpay
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @config_set = config_set
         @terminal_id = terminal_id || SixSaferpay.config.terminal_id
-        @payment = SixSaferpay::Payment.new(payment.to_h) if payment
-        @payment_means = SixSaferpay::RequestPaymentMeans.new(payment_means.to_h) if payment_means
-        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
+        @payment = SixSaferpay::Payment.new(**payment.to_h) if payment
+        @payment_means = SixSaferpay::RequestPaymentMeans.new(**payment_means.to_h) if payment_means
+        @authentication = SixSaferpay::Authentication.new(**authentication.to_h) if authentication
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
         @return_urls = return_urls || SixSaferpay::ReturnUrls.new()
-        @styling = SixSaferpay::Styling.new(styling.to_h) if styling
-        @wallet = SixSaferpay::Wallet.new(wallet.to_h) if wallet
+        @styling = SixSaferpay::Styling.new(**styling.to_h) if styling
+        @wallet = SixSaferpay::Wallet.new(**wallet.to_h) if wallet
         @payment_methods = payment_methods
-        @card_form = SixSaferpay::CardForm.new(card_form.to_h) if card_form
-        @order = SixSaferpay::Order.new(order.to_h) if order
-        @risk_factors = SixSaferpay::RiskFactors.new(risk_factors.to_h) if risk_factors
+        @card_form = SixSaferpay::CardForm.new(**card_form.to_h) if card_form
+        @order = SixSaferpay::Order.new(**order.to_h) if order
+        @risk_factors = SixSaferpay::RiskFactors.new(**risk_factors.to_h) if risk_factors
       end
 
       def to_hash

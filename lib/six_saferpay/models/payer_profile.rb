@@ -49,7 +49,7 @@ module SixSaferpay
       @secondary_email = secondary_email
 
       if phone
-        @phone = SixSaferpay::Phone.new(phone.to_h)
+        @phone = SixSaferpay::Phone.new(**phone.to_h)
       end
     end
 

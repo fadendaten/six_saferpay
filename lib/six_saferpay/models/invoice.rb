@@ -4,7 +4,7 @@ module SixSaferpay
     attr_accessor(:payee, :reason_for_transfer, :due_date)
 
     def initialize(payee: nil, reason_for_transfer: nil, due_date: nil)
-      @payee = SixSaferpay::Payee.new(payee.to_h) if payee
+      @payee = SixSaferpay::Payee.new(**payee.to_h) if payee
       @reason_for_transfer = reason_for_transfer
       @due_date = due_date
     end

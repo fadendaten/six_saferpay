@@ -20,9 +20,9 @@ module SixSaferpay
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = terminal_id || SixSaferpay.config.terminal_id
-        @payment = SixSaferpay::Payment.new(payment.to_h) if payment
-        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
-        @authentication = SixSaferpay::Authentication.new(authentication.to_h) if authentication
+        @payment = SixSaferpay::Payment.new(**payment.to_h) if payment
+        @transaction_reference = SixSaferpay::TransactionReference.new(**transaction_reference.to_h) if transaction_reference
+        @authentication = SixSaferpay::Authentication.new(**authentication.to_h) if authentication
         @suppress_dcc = suppress_dcc
       end
 

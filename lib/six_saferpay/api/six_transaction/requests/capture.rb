@@ -21,14 +21,14 @@ module SixSaferpay
                     mastercard_issuer_installments: nil
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
-        @amount = SixSaferpay::Amount.new(amount.to_h) if amount
-        @billpay = SixSaferpay::Billpay.new(billpay.to_h) if billpay
-        @pending_notification = SixSaferpay::PendingNotification.new(pending_notification.to_h) if pending_notification
-        @marketplace = SixSaferpay::Marketplace.new(marketplace.to_h) if marketplace
+        @transaction_reference = SixSaferpay::TransactionReference.new(**transaction_reference.to_h) if transaction_reference
+        @amount = SixSaferpay::Amount.new(**amount.to_h) if amount
+        @billpay = SixSaferpay::Billpay.new(**billpay.to_h) if billpay
+        @pending_notification = SixSaferpay::PendingNotification.new(**pending_notification.to_h) if pending_notification
+        @marketplace = SixSaferpay::Marketplace.new(**marketplace.to_h) if marketplace
         if mastercard_issuer_installments
           @mastercard_issuer_installments = SixSaferpay::MastercardIssuerInstallments
-            .new(mastercard_issuer_installments.to_h)
+            .new(**mastercard_issuer_installments.to_h)
         end
       end
 

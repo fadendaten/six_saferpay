@@ -12,10 +12,10 @@ module SixSaferpay
                      fd_alias:,
                      payment_means:,
                      check_result: nil)
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @fd_alias = SixSaferpay::Alias.new(fd_alias.to_h) if fd_alias
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h) if payment_means
-        @check_result = SixSaferpay::CheckResult.new(check_result.to_h) if check_result
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @fd_alias = SixSaferpay::Alias.new(**fd_alias.to_h) if fd_alias
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h) if payment_means
+        @check_result = SixSaferpay::CheckResult.new(**check_result.to_h) if check_result
       end
 
       def to_hash

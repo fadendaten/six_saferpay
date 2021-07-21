@@ -25,14 +25,14 @@ module SixSaferpay
       @interest_rate = interest_rate
       if installment_fee
         @installment_fee = SixSaferpay::InstallmentFee
-          .new(installment_fee.to_h)
+          .new(**installment_fee.to_h)
       end
       if annual_percentage_rate
         @annual_percentage_rate = annual_percentage_rate
       end
       if total_amount_due
         @total_amount_due = SixSaferpay::TotalAmountDue
-          .new(total_amount_due.to_h)
+          .new(**total_amount_due.to_h)
       end
     end
 

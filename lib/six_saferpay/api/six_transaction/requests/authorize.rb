@@ -20,7 +20,7 @@ module SixSaferpay
         @token = token
         @condition = condition
         @verification_code = verification_code
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
       end
 
       def to_hash

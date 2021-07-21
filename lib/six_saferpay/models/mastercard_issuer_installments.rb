@@ -16,15 +16,15 @@ module SixSaferpay
       )
       if installment_plans
         @installment_plans = SixSaferpay::InstallmentPlans
-          .new(installment_plans.to_h)
+          .new(**installment_plans.to_h)
       end
       if custom_plan
         @custom_plan = SixSaferpay::CustomPlan
-          .new(custom_plan)
+          .new(**custom_plan.to_h)
       end
       if chosen_plan
         @chosen_plan = SixSaferpay::ChosenPlan
-          .new(chosen_plan.to_h)
+          .new(**chosen_plan.to_h)
       end
       @receipt_free_text = receipt_free_text
     end

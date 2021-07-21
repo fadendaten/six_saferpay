@@ -23,8 +23,8 @@ module SixSaferpay
       @ip_address = ip_address
       @ip_location = ip_location
       @language_code = language_code
-      @delivery_address = SixSaferpay::DeliveryAddress.new(delivery_address.to_h) if delivery_address
-      @billing_address = SixSaferpay::BillingAddress.new(billing_address.to_h) if billing_address
+      @delivery_address = SixSaferpay::DeliveryAddress.new(**delivery_address.to_h) if delivery_address
+      @billing_address = SixSaferpay::BillingAddress.new(**billing_address.to_h) if billing_address
     end
 
     def to_hash

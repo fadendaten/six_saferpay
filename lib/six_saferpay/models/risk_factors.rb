@@ -15,7 +15,7 @@ module SixSaferpay
       @delivery_type = delivery_type
 
       if payer_profile
-        @payer_profile = SixSaferpay::PayerProfile.new(payer_profile.to_h)
+        @payer_profile = SixSaferpay::PayerProfile.new(**payer_profile.to_h)
       end
       @is_b2b = is_b2b
     end

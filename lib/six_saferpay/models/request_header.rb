@@ -16,7 +16,7 @@ module SixSaferpay
       @customer_id = customer_id || SixSaferpay.config.customer_id
       @request_id = request_id || SecureRandom.uuid
       @retry_indicator = retry_indicator || 0
-      @client_info = SixSaferpay::ClientInfo.new(client_info.to_h) if client_info
+      @client_info = SixSaferpay::ClientInfo.new(**client_info.to_h) if client_info
     end
 
     def to_hash
