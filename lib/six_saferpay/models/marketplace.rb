@@ -5,8 +5,8 @@ module SixSaferpay
 
     def initialize(submerchant_id: , fee: , fee_refund: )
       @submerchant_id = submerchant_id
-      @fee = SixSaferpay::Fee.new(fee.to_h) if fee
-      @fee_refund = SixSaferpay::FeeRefund.new(fee_refund.to_h) if fee_refund
+      @fee = SixSaferpay::Fee.new(**fee.to_h) if fee
+      @fee_refund = SixSaferpay::FeeRefund.new(**fee_refund.to_h) if fee_refund
     end
 
     def to_hash

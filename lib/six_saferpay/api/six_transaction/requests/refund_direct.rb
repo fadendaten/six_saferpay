@@ -16,8 +16,8 @@ module SixSaferpay
                     )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
         @terminal_id = terminal_id
-        @refund = SixSaferpay::Refund.new(refund.to_h) if refund
-        @payment_means = SixSaferpay::RequestPaymentMeans.new(payment_means.to_h) if payment_means
+        @refund = SixSaferpay::Refund.new(**refund.to_h) if refund
+        @payment_means = SixSaferpay::RequestPaymentMeans.new(**payment_means.to_h) if payment_means
       end
 
       def to_hash

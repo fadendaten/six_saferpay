@@ -25,7 +25,7 @@ module SixSaferpay
       <%- %>
       <%= "if #{attr.name}" %>
         <%= "@#{attr.name} = "-%>
-        <%- -%><%= "SixSaferpay::#{attr.type}.new(#{attr.name}.to_h)" %>
+        <%- -%><%= "SixSaferpay::#{attr.type}.new(**#{attr.name}.to_h)" %>
       <%= "end" %>
     <%- end -%>
 <%- end -%>

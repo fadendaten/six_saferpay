@@ -10,7 +10,7 @@ module SixSaferpay
                      register_alias:,
                      six_transaction_reference: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @register_alias = SixSaferpay::RegisterAlias.new(register_alias.to_h) if register_alias
+        @register_alias = SixSaferpay::RegisterAlias.new(**register_alias.to_h) if register_alias
         @six_transaction_reference = six_transaction_reference
       end
 

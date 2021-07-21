@@ -5,7 +5,7 @@ module SixSaferpay
       attr_accessor(:response_header)
 
       def initialize(response_header:)
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h)
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h)
       end
 
       def to_hash

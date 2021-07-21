@@ -22,7 +22,7 @@ module SixSaferpay
                    processor_result: nil,
                    processor_message: nil
                   )
-      @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+      @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
       @behavior = behavior
       @error_name = error_name
       @error_message = error_message

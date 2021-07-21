@@ -19,12 +19,12 @@ module SixSaferpay
                      dcc: nil
 
                     )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @transaction = SixSaferpay::Transaction.new(transaction.to_h) if transaction
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h) if payment_means
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
-        @liability = SixSaferpay::Liability.new(liability.to_h) if liability
-        @dcc = SixSaferpay::Dcc.new(dcc.to_h) if dcc
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @transaction = SixSaferpay::Transaction.new(**transaction.to_h) if transaction
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h) if payment_means
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
+        @liability = SixSaferpay::Liability.new(**liability.to_h) if liability
+        @dcc = SixSaferpay::Dcc.new(**dcc.to_h) if dcc
       end
 
       def to_hash

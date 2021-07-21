@@ -14,11 +14,11 @@ module SixSaferpay
                     status: ,
                     date: ,
                     invoice: nil)
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
         @capture_id = capture_id
         @status = status
         @date = date
-        @invoice = SixSaferpay::Invoice.new(invoice.to_h) if invoice
+        @invoice = SixSaferpay::Invoice.new(**invoice.to_h) if invoice
       end
 
       def to_hash

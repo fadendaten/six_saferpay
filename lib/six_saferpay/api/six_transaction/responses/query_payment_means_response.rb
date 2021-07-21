@@ -15,9 +15,9 @@ module SixSaferpay
                      redirect_required: ,
                      redirect_url:)
 
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
-        @payment_means = SixSaferpay::ResponsePaymentMeans.new(payment_means.to_h) if payment_means
-        @payer = SixSaferpay::Payer.new(payer.to_h) if payer
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
+        @payment_means = SixSaferpay::ResponsePaymentMeans.new(**payment_means.to_h) if payment_means
+        @payer = SixSaferpay::Payer.new(**payer.to_h) if payer
         @redirect_required = redirect_required
         @redirect_url = redirect_url
       end

@@ -9,7 +9,7 @@ module SixSaferpay
       def initialize(request_header: nil,
                      transaction_reference: )
         @request_header = request_header || SixSaferpay::RequestHeader.new()
-        @transaction_reference = SixSaferpay::TransactionReference.new(transaction_reference.to_h) if transaction_reference
+        @transaction_reference = SixSaferpay::TransactionReference.new(**transaction_reference.to_h) if transaction_reference
       end
 
       def to_hash

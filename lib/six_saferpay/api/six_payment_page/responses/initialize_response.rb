@@ -12,7 +12,7 @@ module SixSaferpay
                     token:,
                     expiration:,
                     redirect_url: )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
         @token = token
         @expiration = expiration
         @redirect_url = redirect_url

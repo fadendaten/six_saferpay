@@ -16,12 +16,12 @@ module SixSaferpay
                      liability_shift: nil,
                      redirect_required:,
                      redirect: )
-        @response_header = SixSaferpay::ResponseHeader.new(response_header.to_h) if response_header
+        @response_header = SixSaferpay::ResponseHeader.new(**response_header.to_h) if response_header
         @token = token
         @expiration = expiration
         @liability_shift = liability_shift
         @redirect_required = redirect_required
-        @redirect = SixSaferpay::Redirect.new(redirect.to_h) if redirect
+        @redirect = SixSaferpay::Redirect.new(**redirect.to_h) if redirect
       end
 
       def to_hash
