@@ -1,5 +1,5 @@
 SpinningWheel.define do
-  fabric name: 'items', class_name: 'SixSaferpay::Items' do
+  fabric name: 'item', class_name: 'SixSaferpay::Item' do
     type { 'DIGITAL' }
     id { 'C123192' }
     variant_id { 'C123192-red' }

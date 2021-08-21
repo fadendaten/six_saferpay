@@ -5,8 +5,11 @@ RSpec.describe SixSaferpay::Order do
 subject { SpinningWheel.create('order') }
 
   let(:hash) {
+    items_array = []
+    subject.items.each {|item| items_array << item }
+
     {
-        items: subject.items.to_h,
+      items: items_array
     }
   }
 

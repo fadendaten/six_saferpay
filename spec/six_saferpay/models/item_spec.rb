@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-RSpec.describe SixSaferpay::Items do
+RSpec.describe SixSaferpay::Item do
 
-subject { SpinningWheel.create('items') }
+subject { SpinningWheel.create('item') }
 
   let(:hash) {
     {

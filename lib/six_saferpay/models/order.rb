@@ -6,18 +6,18 @@ module SixSaferpay
     )
 
     def initialize(
-      items: nil
+      items: []
       )
 
       if items
-        @items = SixSaferpay::Items.new(**items.to_h)
+        @items = items.map {|item_attr| SixSaferpay::Item.new(item_attr) }
       end
     end
 
     def to_hash
       hash = Hash.new
       if @items
-        hash.merge!(items: @items.to_h)
+        hash.merge!(items: items.map(&:to_hash))
       end
       hash
     end
