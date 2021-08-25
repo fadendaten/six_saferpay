@@ -11,6 +11,7 @@ module SixSaferpay
       :quantity,
       :unit_price,
       :is_pre_order,
+      :tax_rate,
       :tax_amount,
       :discount_amount,
     )
@@ -25,6 +26,7 @@ module SixSaferpay
       quantity: nil,
       unit_price: nil,
       is_pre_order: nil,
+      tax_rate: nil,
       tax_amount: nil,
       discount_amount: nil
       )
@@ -37,6 +39,7 @@ module SixSaferpay
       @quantity = quantity
       @unit_price = unit_price
       @is_pre_order = is_pre_order
+      @tax_rate = tax_rate
       @tax_amount = tax_amount
       @discount_amount = discount_amount
     end
@@ -52,6 +55,7 @@ module SixSaferpay
       hash.merge!(quantity: @quantity) if @quantity
       hash.merge!(unit_price: @unit_price) if @unit_price
       hash.merge!(is_pre_order: @is_pre_order) if !@is_pre_order.nil?
+      hash.merge!(tax_rate: @tax_rate) if @tax_rate
       hash.merge!(tax_amount: @tax_amount) if @tax_amount
       hash.merge!(discount_amount: @discount_amount) if @discount_amount
 

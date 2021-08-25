@@ -6,7 +6,7 @@ subject { SpinningWheel.create('order') }
 
   let(:hash) {
     items_array = []
-    subject.items.each {|item| items_array << item }
+    subject.items.each {|item| items_array << item.to_h }
 
     {
       items: items_array

@@ -15,6 +15,7 @@ subject { SpinningWheel.create('item') }
         quantity: subject.quantity,
         unit_price: subject.unit_price,
         is_pre_order: subject.is_pre_order,
+        tax_rate: subject.tax_rate,
         tax_amount: subject.tax_amount,
         discount_amount: subject.discount_amount,
     }

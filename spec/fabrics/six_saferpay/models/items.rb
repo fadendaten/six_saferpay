@@ -9,6 +9,7 @@ SpinningWheel.define do
     quantity { '3' }
     unit_price { '200' }
     is_pre_order { true }
+    tax_rate { '077' }
     tax_amount { '42' }
     discount_amount { '10' }
   end
