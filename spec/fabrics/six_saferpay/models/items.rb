@@ -1,5 +1,5 @@
 SpinningWheel.define do
-  fabric name: 'items', class_name: 'SixSaferpay::Items' do
+  fabric name: 'item', class_name: 'SixSaferpay::Item' do
     type { 'DIGITAL' }
     id { 'C123192' }
     variant_id { 'C123192-red' }
@@ -9,6 +9,7 @@ SpinningWheel.define do
     quantity { '3' }
     unit_price { '200' }
     is_pre_order { true }
+    tax_rate { '077' }
     tax_amount { '42' }
     discount_amount { '10' }
   end
