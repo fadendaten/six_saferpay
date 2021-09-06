@@ -8,7 +8,7 @@ http_interactions:
       string: '{"Payment":{"Amount":{"Value":100,"CurrencyCode":"CHF"},"OrderId":"R123456789","Description":"Order
         R123456789"},"ExpirationDate":"2019-11-16","Payer":{"IpAddress":"127.0.0.1","LanguageCode":"de-ch","BillingAddress":{"FirstName":"John","LastName":"Doe","DateOfBirth":"1990-05-31","Company":"ACME
         Corp.","Gender":"COMPANY","LegalForm":"AG","Street":"Bakerstreet 32","Street2":"Stewart
-        House","Zip":"8000","City":"Zurich","CountrySubdevisionCode":"ZH","CountryCode":"CH","Phone":"+41
+        House","Zip":"8000","City":"Zurich","CountrysubdivisionCode":"ZH","CountryCode":"CH","Phone":"+41
         12 345 6789","Email":"support@fadendaten.ch"}}}'
     headers:
       Content-Type:

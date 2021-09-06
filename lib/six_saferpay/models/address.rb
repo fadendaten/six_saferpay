@@ -11,7 +11,7 @@ module SixSaferpay
                   :street2,
                   :zip,
                   :city,
-                  :country_subdevision_code,
+                  :country_subdivision_code,
                   :country_code,
                   :phone,
                   :email,
@@ -28,7 +28,7 @@ module SixSaferpay
                   street2: nil,
                   zip: nil,
                   city: nil,
-                  country_subdevision_code: nil,
+                  country_subdivision_code: nil,
                   country_code: nil,
                   phone: nil,
                   email: nil
@@ -43,7 +43,7 @@ module SixSaferpay
       @street2 = street2
       @zip = zip
       @city = city
-      @country_subdevision_code = country_subdevision_code
+      @country_subdivision_code = country_subdivision_code
       @country_code = country_code
       @phone = phone
       @email = email
@@ -61,7 +61,7 @@ module SixSaferpay
       hash.merge!(street2: @street2) if @street2.present?
       hash.merge!(zip: @zip) if @zip
       hash.merge!(city: @city) if @city
-      hash.merge!(country_subdevision_code: @country_subdevision_code) if @country_subdevision_code
+      hash.merge!(country_subdivision_code: @country_subdivision_code) if @country_subdivision_code
       hash.merge!(country_code: @country_code) if @country_code
       hash.merge!(phone: @phone) if @phone
       hash.merge!(email: @email) if @email
