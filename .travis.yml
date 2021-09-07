@@ -1,5 +1,4 @@
 ---
-sudo: false
 language: ruby
 cache: bundler
 rvm:
@@ -10,5 +9,5 @@ before_install:
   - gem install bundler:2.2.8
 
 notifications:
-  slack: fadendaten:tWoet2mtObvbwSZSyUAY93jl
+  slack: "fadendaten:tWoet2mtObvbwSZSyUAY93jl"
   email: false
