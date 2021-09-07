@@ -1,13 +1,13 @@
 ---
-sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - 2.7.2
+  - 2.7.4
 
 before_install:
+  - yes | gem update --system --force
   - gem install bundler:2.2.8
 
 notifications:
-  slack: fadendaten:tWoet2mtObvbwSZSyUAY93jl
+  slack: "fadendaten:tWoet2mtObvbwSZSyUAY93jl"
   email: false
