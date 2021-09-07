@@ -10,7 +10,7 @@ SpinningWheel.define do
     street2 { 'Stewart House' }
     zip { '8000' }
     city { 'Zurich' }
-    country_subdevision_code { 'ZH' }
+    country_subdivision_code { 'ZH' }
     country_code { 'CH' }
     phone { '+41 12 345 6789' }
     email { 'support@fadendaten.ch' }

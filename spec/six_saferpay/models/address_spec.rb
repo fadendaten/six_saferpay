@@ -16,7 +16,7 @@ RSpec.describe SixSaferpay::Address do
       gender: subject.gender,
       zip: subject.zip,
       city: subject.city,
-      country_subdevision_code: subject.country_subdevision_code,
+      country_subdivision_code: subject.country_subdivision_code,
       country_code: subject.country_code,
       phone: subject.phone,
       email: subject.email
@@ -42,7 +42,7 @@ RSpec.describe SixSaferpay::Address do
         gender: subject.gender,
         zip: subject.zip,
         city: subject.city,
-        country_subdevision_code: subject.country_subdevision_code,
+        country_subdivision_code: subject.country_subdivision_code,
         country_code: subject.country_code,
         phone: subject.phone,
         email: subject.email,
