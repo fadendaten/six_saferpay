@@ -4,6 +4,10 @@
 
 # SixSaferpay
 
+## ⚠️  No longer maintained ⚠️
+
+This repository is no longer actively maintained. Feel free to [contact us](https://github.com/fadendaten/six_saferpay/issues/27) to discuss transfer of the repo if you want to take over.
+
 ## Current API Version
 
 This gem is compatible with the SIX API version: `1.20`
